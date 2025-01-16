@@ -1,0 +1,323 @@
+<odoo>
+    <!-- Tree View -->
+    <!-- you can edit tree view in ui by activate debugmode and edit or write in edit tree view -->
+    <record id="view_property_tree" model="ir.ui.view">
+        <!-- ir.ui.view  from odoo model for view form and tree and kanaban and searsh  -->
+        <field name="name">real.estate.property.tree</field>
+        <!-- name of record  -->
+        <field name="model">real.estate.property</field>
+        <!-- name of model db -->
+        <field name="arch" type="xml">
+        <!-- type of this field is xml  -->
+            <tree  editable="bottom">
+            <!-- define  atree tag for view list of rcords  -->
+            <!-- and enter all models field as your bussnies -->
+                <field name="name"/>
+                <field name="state"/>
+                <field name="price"/>
+                <field name="bedrooms"/>
+                <field name="bathrooms" optional="hide"/>
+                <!-- optional hide or show in view ui by mark that -->
+                <field name="garden" optional="hide"/>
+                <field name="garden_area" optional="hide"/>
+                <field name="total_area" optional="hide"/>
+                <field name="availability_date"/>
+                <field name="property_type" optional="hide"/>
+                <field name="description" optional="hide"/>               
+                <!-- <field name="note" optional="hide"/> -->
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_property_form" model="ir.ui.view">
+        <field name="name">real.estate.property.form</field>
+        <field name="model">real.estate.property</field>
+        <field name="arch" type="xml">
+            <form>
+                <!-- define  sheet tag for form  create new record  -->
+                <sheet>
+                    <div class="oe_title">
+                    <!-- define div for field name in spicifc area  -->
+                        <h1>
+                        <label for='name'>Name</label>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <!-- multy group for split sheet form in ui  -->
+                    <group>
+                        <!-- <field name="reference" readonly="1"/> -->
+                        <group name="Info" string="Info">
+                            <field name="state"/>
+                            <field name="price"/>
+                            <field name="availability_date"/>
+                            <field name="postcode"/>
+                            <field name="property_type"/>
+                        </group>
+                        <group name="Details" string="Details">
+                            <field name="bedrooms"/>
+                            <field name="bathrooms"/>
+                            <field name="garage"/>
+                            <field name="garden"/>
+                            <field name="image" widget="image"/>
+                        </group>
+                        <!-- <field name="agent_id"/> -->
+                    </group>
+                    <group name="Data" string="Data">
+                        <field name="description"/>
+                        <!-- <field name="note"/> -->
+                    </group>
+                    <!-- <notebook>
+                        <page string="Offers">
+                            <field name="offer_ids">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="price"/>
+                                    <field name="status"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Tags">
+                            <field name="tag_ids">
+                                <tree>
+                                    <field name="name"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook> -->
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- search View -->
+    <record id="view_property_search" model="ir.ui.view">
+        <!-- ir.ui.view  from odoo model for view form and tree and kanaban and searsh  -->
+        <field name="name">real.estate.property.search</field>
+        <!-- name of record  -->
+        <field name="model">real.estate.property</field>
+        <!-- name of model db -->
+        <field name="arch" type="xml">
+        <!-- type of this field is xml  -->
+            <search>
+            <!-- define  search tag for search list of rcords  -->
+            <!-- and enter all models field as your bussnies -->
+                <field name="name"/>
+                <field name="description"/>
+                <field name="postcode"/>
+                <!--  name of field for serach  -->
+                <filter name="Available" string="Available" domain="[('state', '=', 'available')]"/>
+                <filter name="Sold" string="Sold" domain="[('state', '=', 'sold')]"/>
+                <!-- fillter name for backend and string for ui and domain take field fillter and opreator and  selction for filtter -->
+                <!-- <filter string="Agent" context="{'group_by': 'agent_id'}"/>  -->
+                <filter name="group_by_state" string="state" context="{'group_by': 'state'}"/> 
+                <filter name="group_by_Type" string="Type" context="{'group_by': 'property_type'}"/> 
+                <!-- group by name for backend and string for ui and context take field from model to group by -->
+            </search>
+        </field>
+    </record>
+
+
+    <!-- Kanban View -->
+    <record id="view_property_kanban" model="ir.ui.view">
+        <field name="name">real.estate.property.kanban</field>
+        <field name="model">real.estate.property</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+                <field name="state"/>
+                <field name="price"/>
+                <field name="image"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="o_kanban_image">
+                                <img t-att-src="kanban_image('real.estate.property', 'image', record.id.raw_value)" alt="Property Image"/>
+                            </div>
+                            <div class="o_kanban_details">
+                                <strong><field name="name"/></strong>
+                                <div>Price: <field name="price"/></div>
+                                <div>State: <field name="state"/></div>
+                                <div>Date: <field name="availability_date"/></div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Graph View -->
+    <record id="view_property_graph" model="ir.ui.view">
+        <field name="name">real.estate.property.graph</field>
+        <field name="model">real.estate.property</field>
+        <field name="arch" type="xml">
+            <graph>
+                <field name="state"/>
+                <field name="price" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Pivot View -->
+    <record id="view_property_pivot" model="ir.ui.view">
+        <field name="name">real.estate.property.pivot</field>
+        <field name="model">real.estate.property</field>
+        <field name="arch" type="xml">
+            <pivot>
+                <field name="state" type="row"/>
+                <field name="price" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Window Action for Property -->
+    <record id="action_property" model="ir.actions.act_window"> 
+         <!-- ir.actions.act_window from odoo actions  -->
+        <field name="name">Properties</field>
+         <!-- Properties name display in ui -->
+        <field name="res_model">real.estate.property</field>
+        <!-- real.estate.property  name of model -->
+        <field name="view_mode">tree,form,kanban,graph,pivot</field>
+        <!-- kind of view to display -->
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Hi Abdo Create a new property</p>
+        </field>
+        <!-- When a user opens  form  a new property, they might see a message like this: -->
+    </record>
+</odoo>
+
+
+<!-- <odoo>
+
+    <record id="view_property_tree" model="ir.ui.view">
+        <field name="name">real.estate.property.tree</field>
+        <field name="model">real.estate.property</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="state"/>
+                <field name="price"/>
+                <field name="bedrooms"/>
+                <field name="bathrooms"/>
+                <field name="garden"/>
+                <field name="garden_area"/>
+                <field name="total_area"/>
+                <field name="availability_date"/>
+                <field name="property_type"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="view_property_form" model="ir.ui.view">
+        <field name="name">real.estate.property.form</field>
+        <field name="model">real.estate.property</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="state"/>
+                        <field name="price"/>
+                        <field name="bedrooms"/>
+                        <field name="bathrooms"/>
+                        <field name="garage"/>
+                        <field name="garden"/>
+                        <field name="garden_area"/>
+                        <field name="total_area" readonly="1"/>
+                        <field name="availability_date"/>
+                        <field name="postcode"/>
+                        <field name="image" widget="image"/>
+                        <field name="property_type"/>
+                    </group>
+                    <notebook>
+                        <page string="Details">
+                            <group>
+                                <field name="date_created" readonly="1"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="view_property_search" model="ir.ui.view">
+        <field name="name">real.estate.property.search</field>
+        <field name="model">real.estate.property</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="state"/>
+                <field name="property_type"/>
+                <filter string="Available Properties" domain="[('state', '=', 'available')]"/>
+                <filter string="Sold Properties" domain="[('state', '=', 'sold')]"/>
+                <group string="Group By">
+                    <filter string="Property Type" context="{'group_by': 'property_type'}"/>
+                    <filter string="State" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+
+    <record id="view_property_kanban" model="ir.ui.view">
+        <field name="name">real.estate.property.kanban</field>
+        <field name="model">real.estate.property</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+                <field name="state"/>
+                <field name="price"/>
+                <field name="image"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="o_kanban_image">
+                                <img t-att-src="kanban_image('real.estate.property', 'image', record.id.raw_value)" alt="Property Image"/>
+                            </div>
+                            <div class="o_kanban_details">
+                                <strong><field name="name"/></strong>
+                                <div>Price: <field name="price"/></div>
+                                <div>State: <field name="state"/></div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+    <record id="view_property_graph" model="ir.ui.view">
+        <field name="name">real.estate.property.graph</field>
+        <field name="model">real.estate.property</field>
+        <field name="arch" type="xml">
+            <graph>
+                <field name="state"/>
+                <field name="price" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+
+    <record id="view_property_pivot" model="ir.ui.view">
+        <field name="name">real.estate.property.pivot</field>
+        <field name="model">real.estate.property</field>
+        <field name="arch" type="xml">
+            <pivot>
+                <field name="state" type="row"/>
+                <field name="price" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+</odoo> -->

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Main Menu -->
+    <!-- *info*  id must be uniqe and name show in ui and sequence in odoo menu and front page  -->
+    <menuitem id="menu_property_root" 
+        name="Real Estate"
+        sequence="1"
+        />
+    <!--  menue items -->
+    <!--  *info* take id of root menue in parent  -->
+    <!--  *info* and action id from property action -->
+    <menuitem id="menu_property" 
+    name="Properties" 
+    parent="menu_property_root" 
+/>
+    <menuitem id="menu_property_sup" 
+    name="All Properties" 
+    parent="menu_property" 
+    action="action_property" sequence="1"
+/>
+</odoo>
+    <!-- Sub Menus -->
+    <!-- <menuitem id="menu_hospital_operations"
+              name="Operations"
+              parent="menu_hospital_root"
+              sequence="10"/>
+
+    <menuitem id="menu_hospital_registration"
+              name="Registrations"
+              parent="menu_hospital_root"
+              sequence="20"
+              groups="group_hospital_manager"/> -->
+    <!-- <menuitem id="menu_hospital_doctor"
+              name="Doctors"
+              parent="menu_hospital_registration"
+              action="action_hospital_doctor"/>
+
+    <menuitem id="menu_hospital_appointment"
+              name="Appointments"
+              parent="menu_hospital_operations"
+              action="action_hospital_appointment"
+              sequence="10"/>
+
+    <menuitem id="menu_hospital_prescription"
+              name="Prescriptions"
+              parent="menu_hospital_operations"
+              action="action_hospital_prescription"
+              sequence="20"/>  -->
