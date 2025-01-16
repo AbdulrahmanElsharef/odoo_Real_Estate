@@ -1,0 +1,53 @@
+<odoo>
+    <!-- Tree View for Tag -->
+    <record id="view_tag_tree" model="ir.ui.view">
+        <field name="name">real.estate.tag.tree</field>
+        <field name="model">real.estate.tag</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="color"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View for Tag -->
+    <record id="view_tag_form" model="ir.ui.view">
+        <field name="name">real.estate.tag.form</field>
+        <field name="model">real.estate.tag</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="color"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View for Tag -->
+    <record id="view_tag_search" model="ir.ui.view">
+        <field name="name">real.estate.tag.search</field>
+        <field name="model">real.estate.tag</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <filter name="Colored" string="Colored Tags" domain="[('color', '!=', False)]"/>
+                <group string="Group By">
+                    <filter name="Name" string="Name" context="{'group_by': 'name'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action for Tag -->
+    <record id="action_tag" model="ir.actions.act_window">
+        <field name="name">Tags</field>
+        <field name="res_model">real.estate.tag</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+</odoo>

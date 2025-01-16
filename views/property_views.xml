@@ -1,30 +1,33 @@
 <odoo>
     <!-- Tree View -->
-    <!-- you can edit tree view in ui by activate debugmode and edit or write in edit tree view -->
+    <!-- *info* you can edit tree view in ui by activate debugmode and edit or write in edit tree view -->
     <record id="view_property_tree" model="ir.ui.view">
-        <!-- ir.ui.view  from odoo model for view form and tree and kanaban and searsh  -->
+        <!-- *info* ir.ui.view  from odoo model for view form and tree and kanaban and searsh  -->
         <field name="name">real.estate.property.tree</field>
-        <!-- name of record  -->
+        <!-- *info* name of record  -->
         <field name="model">real.estate.property</field>
-        <!-- name of model db -->
+        <!-- *info* name of model db -->
         <field name="arch" type="xml">
-        <!-- type of this field is xml  -->
-            <tree  editable="bottom">
-            <!-- define  atree tag for view list of rcords  -->
-            <!-- and enter all models field as your bussnies -->
+        <!-- *info* type of this field is xml  -->
+        <!-- *info* editable="bottom"   if i need tree is editable   or  multy_edit="1" for edit selction field  -->
+        <!-- *info* create="0" edit="1" delete="0" is second level of access from view and third level by group  -->
+            <tree  multi_edit="1" create="0" edit="1" delete="0" > 
+            <!-- *info* define  atree tag for view list of rcords  -->
+            <!-- *info* and enter all models field as your bussnies -->
                 <field name="name"/>
+                <field name="agent_id" optional="show"/>
                 <field name="state"/>
                 <field name="price"/>
                 <field name="bedrooms"/>
                 <field name="bathrooms" optional="hide"/>
-                <!-- optional hide or show in view ui by mark that -->
+                <!-- *info* optional hide or show in view ui by mark that -->
                 <field name="garden" optional="hide"/>
                 <field name="garden_area" optional="hide"/>
                 <field name="total_area" optional="hide"/>
                 <field name="availability_date"/>
                 <field name="property_type" optional="hide"/>
                 <field name="description" optional="hide"/>               
-                <!-- <field name="note" optional="hide"/> -->
+                <field name="date_created" optional="hide"/>               
             </tree>
         </field>
     </record>
@@ -35,56 +38,66 @@
         <field name="model">real.estate.property</field>
         <field name="arch" type="xml">
             <form>
-                <!-- define  sheet tag for form  create new record  -->
+                <!-- *info* define  sheet tag for form  create new record  -->
                 <sheet>
                     <div class="oe_title">
-                    <!-- define div for field name in spicifc area  -->
+                    <!-- *info* define div for field name in spicifc area  -->
                         <h1>
                         <label for='name'>Name</label>
                             <field name="name"/>
                         </h1>
                     </div>
-                    <!-- multy group for split sheet form in ui  -->
+                    <!-- *info* multy group for split sheet form in ui  -->
                     <group>
-                        <!-- <field name="reference" readonly="1"/> -->
+                        <!-- *info* <field name="reference" readonly="1"/> -->
                         <group name="Info" string="Info">
+                            <field name="agent_id"/>
                             <field name="state"/>
                             <field name="price"/>
                             <field name="availability_date"/>
                             <field name="postcode"/>
-                            <field name="property_type"/>
+                            <field name="property_type" />
+                            <field name="date_created" />
                         </group>
                         <group name="Details" string="Details">
                             <field name="bedrooms"/>
                             <field name="bathrooms"/>
                             <field name="garage"/>
                             <field name="garden"/>
+                            <field name="garden_area"/>
                             <field name="image" widget="image"/>
                         </group>
                         <!-- <field name="agent_id"/> -->
                     </group>
-                    <group name="Data" string="Data">
-                        <field name="description"/>
-                        <!-- <field name="note"/> -->
-                    </group>
-                    <!-- <notebook>
+
+                    <notebook>
+                        <page string="Data">
+                            <group name="Data" string="Data">
+                                <field name="description"  
+                                required="1"
+                                /> 
+                                <!-- means this field is constrains by view this low level restrict -->
+                                <field name="note"/>
+                            </group>
+                        </page>
                         <page string="Offers">
                             <field name="offer_ids">
-                                <tree>
+                                <tree  editable="bottom">
                                     <field name="name"/>
                                     <field name="price"/>
-                                    <field name="status"/>
+                                    <field name="state"/>
                                 </tree>
                             </field>
                         </page>
                         <page string="Tags">
                             <field name="tag_ids">
-                                <tree>
+                                <tree editable="bottom">
                                     <field name="name"/>
+                                    <field name="color"/>
                                 </tree>
                             </field>
                         </page>
-                    </notebook> -->
+                    </notebook>
                 </sheet>
                 <div class="oe_chatter">
                     <field name="message_ids" widget="mail_thread"/>
@@ -93,29 +106,29 @@
         </field>
     </record>
 
-    <!-- search View -->
+    <!-- *info* search View -->
     <record id="view_property_search" model="ir.ui.view">
-        <!-- ir.ui.view  from odoo model for view form and tree and kanaban and searsh  -->
+        <!-- *info* ir.ui.view  from odoo model for view form and tree and kanaban and searsh  -->
         <field name="name">real.estate.property.search</field>
-        <!-- name of record  -->
+        <!-- *info* name of record  -->
         <field name="model">real.estate.property</field>
-        <!-- name of model db -->
+        <!-- *info* name of model db -->
         <field name="arch" type="xml">
-        <!-- type of this field is xml  -->
+        <!-- *info* type of this field is xml  -->
             <search>
-            <!-- define  search tag for search list of rcords  -->
-            <!-- and enter all models field as your bussnies -->
+            <!-- *info* define  search tag for search list of rcords  -->
+            <!-- *info* and enter all models field as your bussnies -->
                 <field name="name"/>
                 <field name="description"/>
                 <field name="postcode"/>
-                <!--  name of field for serach  -->
+                <!-- *info*  name of field for serach  -->
                 <filter name="Available" string="Available" domain="[('state', '=', 'available')]"/>
                 <filter name="Sold" string="Sold" domain="[('state', '=', 'sold')]"/>
-                <!-- fillter name for backend and string for ui and domain take field fillter and opreator and  selction for filtter -->
+                <!--  *info* fillter name for backend and string for ui and domain take field fillter and opreator and  selction for filtter -->
                 <!-- <filter string="Agent" context="{'group_by': 'agent_id'}"/>  -->
                 <filter name="group_by_state" string="state" context="{'group_by': 'state'}"/> 
                 <filter name="group_by_Type" string="Type" context="{'group_by': 'property_type'}"/> 
-                <!-- group by name for backend and string for ui and context take field from model to group by -->
+                <!-- *info* group by name for backend and string for ui and context take field from model to group by -->
             </search>
         </field>
     </record>
@@ -142,6 +155,7 @@
                                 <div>Price: <field name="price"/></div>
                                 <div>State: <field name="state"/></div>
                                 <div>Date: <field name="availability_date"/></div>
+                                <div>Note: <field name="note"/></div>
                             </div>
                         </div>
                     </t>
@@ -176,13 +190,13 @@
 
     <!-- Window Action for Property -->
     <record id="action_property" model="ir.actions.act_window"> 
-         <!-- ir.actions.act_window from odoo actions  -->
+         <!-- *info* ir.actions.act_window from odoo actions  -->
         <field name="name">Properties</field>
-         <!-- Properties name display in ui -->
+         <!-- *info* Properties name display in ui -->
         <field name="res_model">real.estate.property</field>
-        <!-- real.estate.property  name of model -->
+        <!-- *info* real.estate.property  name of model -->
         <field name="view_mode">tree,form,kanban,graph,pivot</field>
-        <!-- kind of view to display -->
+        <!-- *info* kind of view to display -->
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">Hi Abdo Create a new property</p>
         </field>

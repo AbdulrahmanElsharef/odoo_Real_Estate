@@ -1,0 +1,68 @@
+<odoo>
+    <!-- Tree View for Offer -->
+    <record id="view_offer_tree" model="ir.ui.view">
+        <field name="name">real.estate.offer.tree</field>
+        <field name="model">real.estate.offer</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="price"/>
+                <field name="property_id"/>
+                <field name="agent_id"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View for Offer -->
+    <record id="view_offer_form" model="ir.ui.view">
+        <field name="name">real.estate.offer.form</field>
+        <field name="model">real.estate.offer</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                <group name="Offer" string="Offer">
+                    <field name="name"/>
+                    <field name="price"/>
+                    <field name="state"/>
+                </group>
+                <group name="Response" string="Response">
+                    <field name="property_id"/>
+                    <field name="agent_id"/>
+                </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View for Offer -->
+    <record id="view_offer_search" model="ir.ui.view">
+        <field name="name">real.estate.offer.search</field>
+        <field name="model">real.estate.offer</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="property_id"/>
+                <field name="agent_id"/>
+                <filter name="Sold" string="Sold" domain="[('state', '=', 'sold')]" />
+                <group string="Group By">
+                    <filter name="Property"  string="Property" context="{'group_by': 'property_id'}"/>
+                    <filter name="Agent"  string="Agent" context="{'group_by': 'agent_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+        <record id="action_offer" model="ir.actions.act_window"> 
+         <!-- *info* ir.actions.act_window from odoo actions  -->
+        <field name="name">Offers</field>
+         <!-- *info* Properties name display in ui -->
+        <field name="res_model">real.estate.offer</field>
+        <!-- *info* real.estate.property  name of model -->
+        <field name="view_mode">tree,form</field>
+        <!-- *info* kind of view to display -->
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Hi Abdo Create a new offer</p>
+        </field>
+        <!-- When a user opens  form  a new property, they might see a message like this: -->
+    </record>
+</odoo>
