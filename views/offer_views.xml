@@ -5,7 +5,9 @@
         <field name="model">real.estate.offer</field>
         <field name="arch" type="xml">
             <tree>
+                <field name="ref"/>
                 <field name="name"/>
+                <field name="phone"/>
                 <field name="price"/>
                 <field name="property_id"/>
                 <field name="agent_id"/>
@@ -22,7 +24,9 @@
             <form>
                 <sheet>
                 <group name="Offer" string="Offer">
+                    <field name="ref"/>
                     <field name="name"/>
+                    <field name="phone"/>
                     <field name="price"/>
                     <field name="state"/>
                 </group>
@@ -41,7 +45,9 @@
         <field name="model">real.estate.offer</field>
         <field name="arch" type="xml">
             <search>
+                <field name="ref"/>
                 <field name="name"/>
+                <field name="phone" required="1"/>
                 <field name="property_id"/>
                 <field name="agent_id"/>
                 <filter name="Sold" string="Sold" domain="[('state', '=', 'sold')]" />

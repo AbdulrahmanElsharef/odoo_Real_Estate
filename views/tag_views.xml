@@ -22,6 +22,11 @@
                         <field name="name"/>
                         <field name="color"/>
                     </group>
+                    <notebook>
+                        <page string="Porporites">
+                            <field name="property_ids"/>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>

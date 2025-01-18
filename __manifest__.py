@@ -10,9 +10,12 @@
     'data': [ #  data file like (security , views , reports , wizards)
     #     'security/security.xml',
         'security/ir.model.access.csv',
-    #     'data/sequence.xml',
+        'data/property_sequence.xml',
+        #SHOW SEQUENS AND automated and server actions
     #     'data/automated_actions.xml',
         'views/property_views.xml',
+        'views/property_extended_views.xml',
+        'views/commercial_property_views.xml',
         'views/offer_views.xml',
         'views/agent_views.xml',
         'views/tag_views.xml',
@@ -22,13 +25,14 @@
     #     'reports/property_report.xml',
     #     'reports/property_report_template.xml',
     ],
-    # 'assets': { # assets of static files like js , css , fonts , img)
+    # 'assets': {
     #     'web.assets_backend': [
-    #         'real_estate/static/src/css/custom.css',
+    #         'real_estate/static/src/css/property_view.css',
     #     ],
     # },
     'installable': True, # can install
     'application': True, # kind  of module
     'license': 'LGPL-3', # odoo license for this app 
+    'icon': 'real_state\static\description\icon.png',  # Add this line for icon
 
 }

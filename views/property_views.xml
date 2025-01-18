@@ -11,23 +11,30 @@
         <!-- *info* type of this field is xml  -->
         <!-- *info* editable="bottom"   if i need tree is editable   or  multy_edit="1" for edit selction field  -->
         <!-- *info* create="0" edit="1" delete="0" is second level of access from view and third level by group  -->
-            <tree  multi_edit="1" create="0" edit="1" delete="0" > 
+            <tree class="custom_view" multi_edit="1" create="1" edit="1" delete="1" > 
             <!-- *info* define  atree tag for view list of rcords  -->
             <!-- *info* and enter all models field as your bussnies -->
+                <field name="ref"/>
                 <field name="name"/>
                 <field name="agent_id" optional="show"/>
+                <field name="agent_phone" optional="hide"/>
+                <field name="agent_email" optional="hide"/>
                 <field name="state"/>
                 <field name="price"/>
+                <field name="best_offer"/>
+                <field name="is_offer_accepted"/>
                 <field name="bedrooms"/>
                 <field name="bathrooms" optional="hide"/>
                 <!-- *info* optional hide or show in view ui by mark that -->
+                <field name="living_area" optional="show"/>
                 <field name="garden" optional="hide"/>
-                <field name="garden_area" optional="hide"/>
+                <field name="garden_area" optional="show"/>
                 <field name="total_area" optional="hide"/>
                 <field name="availability_date"/>
                 <field name="property_type" optional="hide"/>
                 <field name="description" optional="hide"/>               
                 <field name="date_created" optional="hide"/>               
+                <field name="active" optional="hide"/>               
             </tree>
         </field>
     </record>
@@ -40,20 +47,37 @@
             <form>
                 <!-- *info* define  sheet tag for form  create new record  -->
                 <sheet>
+                    <header>
+                        <button name="action_draft" string="Draft" type="object"  class="oe_highlight" invisible="state == 'sold'"/>
+                        <!-- this button for action method of state in models and type="object" for func ,string for ui and class of css -->
+                        <button name="action_available" string="Available" type="object"  class="btn-primary" invisible="state == 'canceled'" />
+                        <button name="action_sold" string="Sold" type="object"  class="btn-success" invisible="state == 'draft'" />
+                        <button name="action_canceled" string="Canceled" type="object" class="btn-danger" invisible="state == 'available'" />
+                        <field name="state" widget="statusbar" statusbar_visible="draft,available,sold,canceled"/>
+                        <!-- this field with statusbarwidget and statusbar_visible to show our model state in ui -->
+                    </header>
                     <div class="oe_title">
                     <!-- *info* define div for field name in spicifc area  -->
                         <h1>
-                        <label for='name'>Name</label>
-                            <field name="name"/>
+                        <label for='ref'></label>
+                            <field name="ref"/>
                         </h1>
+                        <h3>
+                        <label for='name'></label>
+                            <field name="name"/>
+                        </h3>
                     </div>
                     <!-- *info* multy group for split sheet form in ui  -->
                     <group>
                         <!-- *info* <field name="reference" readonly="1"/> -->
                         <group name="Info" string="Info">
                             <field name="agent_id"/>
-                            <field name="state"/>
+                            <field name="agent_email"/>
+                            <field name="agent_phone"/>
+                            <field name="state" readonly="1"/>
                             <field name="price"/>
+                            <field name="best_offer"/>
+                            <field name="is_offer_accepted"/>
                             <field name="availability_date"/>
                             <field name="postcode"/>
                             <field name="property_type" />
@@ -62,9 +86,13 @@
                         <group name="Details" string="Details">
                             <field name="bedrooms"/>
                             <field name="bathrooms"/>
+                            <field name="living_area"/>
                             <field name="garage"/>
                             <field name="garden"/>
                             <field name="garden_area"/>
+                            <field name="total_area"/>
+                            <field name="tag_ids" widget="many2many_tags"/>
+                            <!-- widget="many2many_tags"  show relshin by many2many in form -->
                             <field name="image" widget="image"/>
                         </group>
                         <!-- <field name="agent_id"/> -->
@@ -84,19 +112,20 @@
                             <field name="offer_ids">
                                 <tree  editable="bottom">
                                     <field name="name"/>
+                                    <field name="phone"/>
                                     <field name="price"/>
                                     <field name="state"/>
                                 </tree>
                             </field>
                         </page>
-                        <page string="Tags">
+                        <!-- <page string="Tags">
                             <field name="tag_ids">
                                 <tree editable="bottom">
                                     <field name="name"/>
                                     <field name="color"/>
                                 </tree>
                             </field>
-                        </page>
+                        </page> -->
                     </notebook>
                 </sheet>
                 <div class="oe_chatter">
@@ -118,16 +147,22 @@
             <search>
             <!-- *info* define  search tag for search list of rcords  -->
             <!-- *info* and enter all models field as your bussnies -->
+                <field name="ref"/>
                 <field name="name"/>
                 <field name="description"/>
                 <field name="postcode"/>
+                <field name="agent_id"/>
                 <!-- *info*  name of field for serach  -->
                 <filter name="Available" string="Available" domain="[('state', '=', 'available')]"/>
                 <filter name="Sold" string="Sold" domain="[('state', '=', 'sold')]"/>
+                <filter name="draft" string="Draft" domain="[('state', '=', 'draft')]"/>
+                <filter name="canceled" string="Canceled" domain="[('state', '=', 'canceled')]"/>
                 <!--  *info* fillter name for backend and string for ui and domain take field fillter and opreator and  selction for filtter -->
                 <!-- <filter string="Agent" context="{'group_by': 'agent_id'}"/>  -->
                 <filter name="group_by_state" string="state" context="{'group_by': 'state'}"/> 
                 <filter name="group_by_Type" string="Type" context="{'group_by': 'property_type'}"/> 
+                <filter name="group_by_Agent" string="Agent" context="{'group_by': 'agent_id'}"/> 
+                <filter name="group_by_Area" string="Area" context="{'group_by': 'total_area'}"/> 
                 <!-- *info* group by name for backend and string for ui and context take field from model to group by -->
             </search>
         </field>
@@ -153,9 +188,10 @@
                             <div class="o_kanban_details">
                                 <strong><field name="name"/></strong>
                                 <div>Price: <field name="price"/></div>
+                                <div>Price: <field name="best_offer"/></div>
+                                <div>Price: <field name="living_area"/></div>
                                 <div>State: <field name="state"/></div>
                                 <div>Date: <field name="availability_date"/></div>
-                                <div>Note: <field name="note"/></div>
                             </div>
                         </div>
                     </t>
@@ -204,134 +240,3 @@
     </record>
 </odoo>
 
-
-<!-- <odoo>
-
-    <record id="view_property_tree" model="ir.ui.view">
-        <field name="name">real.estate.property.tree</field>
-        <field name="model">real.estate.property</field>
-        <field name="arch" type="xml">
-            <tree>
-                <field name="name"/>
-                <field name="state"/>
-                <field name="price"/>
-                <field name="bedrooms"/>
-                <field name="bathrooms"/>
-                <field name="garden"/>
-                <field name="garden_area"/>
-                <field name="total_area"/>
-                <field name="availability_date"/>
-                <field name="property_type"/>
-            </tree>
-        </field>
-    </record>
-
-
-    <record id="view_property_form" model="ir.ui.view">
-        <field name="name">real.estate.property.form</field>
-        <field name="model">real.estate.property</field>
-        <field name="arch" type="xml">
-            <form>
-                <sheet>
-                    <group>
-                        <field name="name"/>
-                        <field name="description"/>
-                        <field name="state"/>
-                        <field name="price"/>
-                        <field name="bedrooms"/>
-                        <field name="bathrooms"/>
-                        <field name="garage"/>
-                        <field name="garden"/>
-                        <field name="garden_area"/>
-                        <field name="total_area" readonly="1"/>
-                        <field name="availability_date"/>
-                        <field name="postcode"/>
-                        <field name="image" widget="image"/>
-                        <field name="property_type"/>
-                    </group>
-                    <notebook>
-                        <page string="Details">
-                            <group>
-                                <field name="date_created" readonly="1"/>
-                            </group>
-                        </page>
-                    </notebook>
-                </sheet>
-                <div class="oe_chatter">
-                    <field name="message_ids" widget="mail_thread"/>
-                </div>
-            </form>
-        </field>
-    </record>
-
-
-    <record id="view_property_search" model="ir.ui.view">
-        <field name="name">real.estate.property.search</field>
-        <field name="model">real.estate.property</field>
-        <field name="arch" type="xml">
-            <search>
-                <field name="name"/>
-                <field name="state"/>
-                <field name="property_type"/>
-                <filter string="Available Properties" domain="[('state', '=', 'available')]"/>
-                <filter string="Sold Properties" domain="[('state', '=', 'sold')]"/>
-                <group string="Group By">
-                    <filter string="Property Type" context="{'group_by': 'property_type'}"/>
-                    <filter string="State" context="{'group_by': 'state'}"/>
-                </group>
-            </search>
-        </field>
-    </record>
-
-
-    <record id="view_property_kanban" model="ir.ui.view">
-        <field name="name">real.estate.property.kanban</field>
-        <field name="model">real.estate.property</field>
-        <field name="arch" type="xml">
-            <kanban>
-                <field name="name"/>
-                <field name="state"/>
-                <field name="price"/>
-                <field name="image"/>
-                <templates>
-                    <t t-name="kanban-box">
-                        <div class="oe_kanban_global_click">
-                            <div class="o_kanban_image">
-                                <img t-att-src="kanban_image('real.estate.property', 'image', record.id.raw_value)" alt="Property Image"/>
-                            </div>
-                            <div class="o_kanban_details">
-                                <strong><field name="name"/></strong>
-                                <div>Price: <field name="price"/></div>
-                                <div>State: <field name="state"/></div>
-                            </div>
-                        </div>
-                    </t>
-                </templates>
-            </kanban>
-        </field>
-    </record>
-
-
-    <record id="view_property_graph" model="ir.ui.view">
-        <field name="name">real.estate.property.graph</field>
-        <field name="model">real.estate.property</field>
-        <field name="arch" type="xml">
-            <graph>
-                <field name="state"/>
-                <field name="price" type="measure"/>
-            </graph>
-        </field>
-    </record>
-
-
-    <record id="view_property_pivot" model="ir.ui.view">
-        <field name="name">real.estate.property.pivot</field>
-        <field name="model">real.estate.property</field>
-        <field name="arch" type="xml">
-            <pivot>
-                <field name="state" type="row"/>
-                <field name="price" type="measure"/>
-            </pivot>
-        </field>
-    </record>
-</odoo> -->

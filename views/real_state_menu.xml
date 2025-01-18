@@ -18,8 +18,8 @@
             name="Offers" 
             parent="menu_property_root" sequence="2"
         />
-        <menuitem id="menu_settings" 
-            name="Settings" 
+        <menuitem id="menu_configrations" 
+            name="Configrations" 
             parent="menu_property_root" sequence="3"
         />
 
@@ -37,13 +37,18 @@
         />
         <menuitem id="menu_agent_sup" 
             name="Agents" 
-            parent="menu_settings" 
+            parent="menu_configrations" 
             action="action_agent" sequence="1"
         />
         <menuitem id="menu_tag_sup" 
             name="Tags" 
-            parent="menu_settings" 
+            parent="menu_configrations" 
             action="action_tag" sequence="2"
+        />
+        <menuitem id="menu_commercial_sup" 
+            name="Commercials" 
+            parent="menu_configrations" 
+            action="action_commercial" sequence="3"
         />
 </odoo>
 

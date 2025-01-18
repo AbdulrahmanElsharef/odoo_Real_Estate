@@ -1,0 +1,11 @@
+/* Custom CSS for Tree View */
+.custom_view  table  {
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    background-color: rgb(187, 250, 229);
+}
+.custom_view > tbody > tr > td.name {
+    font-weight: bold; /* Bold font for the 'name' column */
+}
+
+

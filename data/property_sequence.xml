@@ -1,0 +1,24 @@
+<odoo>
+        <record id="property_sequence" model="ir.sequence">
+        <field name="name">Property Reference Sequence</field>
+        <field name="code">real.estate.property</field>  <!-- name for Unique code for the sequence -->
+        <field name="prefix">PRP/</field>  <!-- Prefix for the sequence (e.g., PROP/0001) -->
+        <field name="padding">4</field>  <!-- Number of digits (e.g., 0001) -->
+        <field name="company_id" eval="False"/>  <!-- Global sequence (not company-specific) -->
+        </record>
+
+
+        <record id="agent_sequence" model="ir.sequence">
+                <field name="name">agent sequence</field>
+                <field name="code">agent_seq</field>
+                <field name="prefix">AG-</field>
+                <field name="padding">4</field> 
+        </record>
+
+        <record id="offer_sequence" model="ir.sequence">
+                <field name="name">offer sequence</field>
+                <field name="code">offer_seq</field>
+                <field name="prefix">OFR-</field>
+                <field name="padding">4</field> 
+        </record>
+</odoo>

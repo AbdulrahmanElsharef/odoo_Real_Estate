@@ -8,6 +8,9 @@ class Tag(models.Model):
     # Fields
     name = fields.Char(string='Tag Name', required=True, translate=True)
     color = fields.Integer(string='Color Index')  # Used for coloring tags in views
+    property_ids = fields.Many2many('real.estate.property', string='Properties')
+
+    
 
     # Constraints
     _sql_constraints = [
