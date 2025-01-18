@@ -11,7 +11,9 @@
         <!-- *info* type of this field is xml  -->
         <!-- *info* editable="bottom"   if i need tree is editable   or  multy_edit="1" for edit selction field  -->
         <!-- *info* create="0" edit="1" delete="0" is second level of access from view and third level by group  -->
-            <tree class="custom_view" multi_edit="1" create="1" edit="1" delete="1" > 
+            <tree 
+            decoration-success="(is_offer_accepted)"
+             multi_edit="1" create="1" edit="1" delete="1" > 
             <!-- *info* define  atree tag for view list of rcords  -->
             <!-- *info* and enter all models field as your bussnies -->
                 <field name="ref"/>
@@ -31,6 +33,7 @@
                 <field name="garden_area" optional="show"/>
                 <field name="total_area" optional="hide"/>
                 <field name="availability_date"/>
+                <field name="offer_date"/>
                 <field name="property_type" optional="hide"/>
                 <field name="description" optional="hide"/>               
                 <field name="date_created" optional="hide"/>               
@@ -79,6 +82,7 @@
                             <field name="best_offer"/>
                             <field name="is_offer_accepted"/>
                             <field name="availability_date"/>
+                            <field name="offer_date"/>
                             <field name="postcode"/>
                             <field name="property_type" />
                             <field name="date_created" />

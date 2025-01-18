@@ -11,6 +11,8 @@
     #     'security/security.xml',
         'security/ir.model.access.csv',
         'data/property_sequence.xml',
+        'data/property_server_actions.xml',
+        'data/property_automated_actions.xml',
         #SHOW SEQUENS AND automated and server actions
     #     'data/automated_actions.xml',
         'views/property_views.xml',

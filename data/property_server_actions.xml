@@ -1,0 +1,16 @@
+<odoo>
+    <!-- you can make it from setting server actions in ui -->
+    <!-- Server Action: Mark Properties as closed -->
+    <record id="action_mark_properties_closed" model="ir.actions.server"> 
+    <!--  "ir.actions.server"  name of sever action in odoo -->
+        <field name="name">Closed </field>
+        <field name="model_id" ref="model_real_estate_property" /><!-- Reference to the Property model -->
+    <!-- Bind the action to the Property model and tree/form views -->
+        <field name="binding_model_id" ref="model_real_estate_property" /><!-- Reference to  binding the Property model -->
+        <field name="state">code</field>  <!-- Execute Python code -->
+        <field name="code">
+            action=record.action_closed() 
+<!-- Call the action_canceled method in the Property model in view and records for form view -->
+        </field>
+    </record>
+</odoo>

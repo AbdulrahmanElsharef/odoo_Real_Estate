@@ -31,9 +31,10 @@ class Property(models.Model):
     total_area = fields.Float(string='Total Area (sqm)', compute='_compute_total_area', store=True )
     #*info*  store true allow to store field in db after compute 
     # and compute means you use compute method in with other fileds 
-    availability_date = fields.Date(string='Availability Date', default=fields.Date.today)
+    availability_date = fields.Date(string='Availability Date' )
+    offer_date = fields.Date(string='Offer Date' )
     postcode = fields.Char(string='Postcode', tracking=True)
-    date_created = fields.Datetime(string='Created On', default=fields.Datetime.now, readonly=True)
+    date_created = fields.Date(string='Created On', default=fields.Date.today, readonly=True)
     # *info* readonly means this field cant update it 
     image = fields.Binary(string='Property Image', attachment=True , tracking=True)
     # *info* attachment=True means this field allow to upload file
@@ -44,6 +45,7 @@ class Property(models.Model):
         ('available', 'Available'),
         ('sold', 'Sold'),
         ('canceled', 'Canceled'),
+        ('closed', 'Closed'),
     ], string='Status', default='draft', tracking=True)
     property_type = fields.Selection([
         ('house', 'House'),
@@ -104,11 +106,7 @@ class Property(models.Model):
         for record in self:
             record.is_offer_accepted = any(offer.state == 'sold' for offer in record.offer_ids)
             
-    # @api.depends('state','active')
-    # def _state_canceled(self):
-    #     for record in self:
-    #         if record.state == "canceled":
-    #             record.active ="canceled"
+
             
     # for self record if record of ofers state == sold  mape means select any by state and sold state
 
@@ -128,13 +126,7 @@ class Property(models.Model):
         else:
             self.garden_area = 0
 
-    # # # Sequence Generation
-    # @api.model_create_multi 
-    # def generate_reference(self,vals):
-    #     if res.ref =='New':
-    #         res.ref=self.env['ir.sequence'].next_by_code('property_seq')
-    #     res=super(Property, self).generate_reference(vals)
-    #     return  res
+
     
     @api.model
     def _generate_reference(self):
@@ -142,6 +134,19 @@ class Property(models.Model):
         return self.env['ir.sequence'].next_by_code('real.estate.property') or 'New'
     # env for explor odoo sequnce and next_by_code related by code in xml file or return new
 
+
+    def closed_property_automatically(self):
+        ids=self.search([])
+        # get all porporty by serach
+        for rec in ids :
+            if rec.offer_date and  rec.offer_date < fields.date.today():
+                # get today func from odoo fields 
+                self.note = 'offer date is expire'
+
+
+        
+        
+        
     # Workflow Methods
     def action_draft(self):
         self.state = 'draft'
@@ -154,13 +159,10 @@ class Property(models.Model):
 
     def action_canceled(self):
         self.state = 'canceled'
+        
+    def action_closed(self):
+        self.state = 'closed'
 
-    # # Python Constraints
-    # @api.constrains('garden_area')
-    # def _check_garden_area(self):
-    #     for record in self:
-    #         if record.garden_area < 0:
-    #             raise ValidationError(_('Garden area cannot be negative.'))
 
     # Override Create Method  
     @api.model_create_multi 
