@@ -1,11 +1,20 @@
-/* Custom CSS for Tree View */
-.custom_view  table  {
-    font-size: 14px;
-    font-family: Arial, sans-serif;
-    background-color: rgb(187, 250, 229);
-}
-.custom_view > tbody > tr > td.name {
-    font-weight: bold; /* Bold font for the 'name' column */
-}
 
-
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+.table th, .table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+.table th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+}
+.table tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+.table tbody tr:hover {
+    background-color: #f1f1f1;
+}

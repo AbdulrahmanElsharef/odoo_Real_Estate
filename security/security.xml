@@ -1,5 +1,47 @@
+
 <odoo>
+    <!-- Create a Category for Real Estate Groups -->
+    <record id="module_category_real_estate" model="ir.module.category">
+        <field name="name">Real Estate Category</field>
+        <field name="description">Groups related to Real Estate Management</field>
+        <field name="sequence">1</field>  <!-- Optional: Controls the order of categories -->
+    </record>
+
+    <!-- Manager Group -->
+    <record id="group_real_estate_manager" model="res.groups">
+        <field name="name">Real Estate Manager</field>
+        <field name="category_id" ref="module_category_real_estate"/>  <!-- Assign to Real Estate category -->
+    </record>
+
+    <!-- Sales Group -->
+    <record id="group_real_estate_sales" model="res.groups">
+        <field name="name">Real Estate Sales</field>
+        <field name="category_id" ref="module_category_real_estate"/>  <!-- Assign to Real Estate category -->
+    </record>
+
+    <!-- User Group -->
     <record id="group_real_estate_user" model="res.groups">
         <field name="name">Real Estate User</field>
+        <field name="category_id" ref="module_category_real_estate"/>  <!-- Assign to Real Estate category -->
     </record>
+
+
 </odoo>
+
+<!-- <record id="property_rule_sales" model="ir.rule">
+        <field name="name">Property Rule: Sales </field>
+        <field name="model_id" ref="model_real_estate_property"/>  Reference to the Property model
+        <field name="domain_force">[('create_uid', '=', user.id)]</field>  Restrict to records created by the user
+        <field name="groups" eval="[(4, ref('group_real_estate_sales'))]"/>  Apply to Sales group
+    </record>
+    
+    <record id="property_rule_user" model="ir.rule">
+        <field name="name">Property Rule: Regular Users</field>
+        <field name="model_id" ref="model_real_estate_property"/>  Reference to the Property model
+        <field name="domain_force">[(1, '=', 1)]</field>  Allow access to all records (read-only)
+        <field name="perm_read" eval="1"/>  Allow read access
+        <field name="perm_write" eval="0"/>  Deny write access
+        <field name="perm_create" eval="0"/>  Deny create access
+        <field name="perm_unlink" eval="0"/>  Deny delete access
+        <field name="groups" eval="[(4, ref('group_real_estate_user'))]"/>  Apply to User group
+    </record> -->

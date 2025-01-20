@@ -13,4 +13,9 @@
 <!-- Call the action_canceled method in the Property model in view and records for form view -->
         </field>
     </record>
+
+
+
 </odoo>
+
+

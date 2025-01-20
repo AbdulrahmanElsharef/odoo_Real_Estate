@@ -1,0 +1,43 @@
+<odoo>
+  <!-- Wizard Form View -->
+    <record id="view_property_wizard_form" model="ir.ui.view">
+        <field name="name">real.estate.property.wizard.form</field>
+        <field name="model">property.wizard</field>  <!-- Ensure this matches the wizard model name -->
+        <field name="arch" type="xml">
+            <form string="Update Property State">
+                <sheet>
+                    <group>
+                        <!-- Hidden field for property_id -->
+                        <field name="property_id" invisible="1"/>  <!-- Corrected typo: "invisible" instead of "invisable" -->
+                        <!-- Reason field -->
+                        <field name="reason" required="1"/>
+                        <!-- State field -->
+                        <field name="state" required="1"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <!-- Update button -->
+                    <button string="Update" type="object" class="btn-primary" name="update_state_method"/>
+                    <!-- Cancel button -->
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Wizard Action -->
+    <record id="wizard_action" model="ir.actions.act_window">
+        <field name="name">Update Property State</field>
+        <field name="res_model">property.wizard</field>  <!-- Ensure this matches the wizard model name -->
+        <field name="view_mode">form</field>
+        <field name="target">new</field>  <!-- Open the wizard in a pop-up window -->
+    </record>
+            <!-- Add the Wizard Action to the Property Model -->
+    <record id="property_action_wizard" model="ir.actions.server">
+        <field name="name">Update State</field>
+        <field name="model_id" ref="model_real_estate_property"/>
+        <field name="binding_model_id" ref="model_real_estate_property" />
+        <field name="state">code</field>
+        <field name="code">action = model.update_wizard() </field>
+    </record>
+</odoo>

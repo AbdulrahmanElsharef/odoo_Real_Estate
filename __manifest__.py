@@ -8,24 +8,24 @@
     'category': 'Real Estate', # category of this app
     'depends': ['base', 'mail'], # other app or module that my app depends when i install my app
     'data': [ #  data file like (security , views , reports , wizards)
-    #     'security/security.xml',
+        'security/security.xml', #for gruop and categouty defind and access
         'security/ir.model.access.csv',
         'data/property_sequence.xml',
         'data/property_server_actions.xml',
         'data/property_automated_actions.xml',
         #SHOW SEQUENS AND automated and server actions
-    #     'data/automated_actions.xml',
         'views/property_views.xml',
         'views/property_extended_views.xml',
         'views/commercial_property_views.xml',
+        'views/property_history.xml',
+        'views/property_wizard.xml',
         'views/offer_views.xml',
         'views/agent_views.xml',
         'views/tag_views.xml',
         'views/real_state_menu.xml',
-    #     'views/agent_views.xml',
-    #     'views/wizard_views.xml',
-    #     'reports/property_report.xml',
-    #     'reports/property_report_template.xml',
+        'reports/property_report.xml',
+        'reports/property_report_template.xml',
+
     ],
     # 'assets': {
     #     'web.assets_backend': [

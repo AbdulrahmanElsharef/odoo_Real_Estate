@@ -15,10 +15,12 @@ class Property(models.Model):
     
     
     # Basic Fields
-    name = fields.Char(string='Property Name', required=True, tracking=True,default="New Property")
+    name = fields.Char(string='Property Name', required=True, tracking=True,default="New Property",translate=True)
     # *info* -string show in ui - required field python restrict  - tracking for track change in ui
-    description = fields.Text(string='Description', tracking=True)
-    note = fields.Text(string='Notes' , tracking=True)
+    description = fields.Text(string='Description', tracking=True,translate=True)
+    note = fields.Text(string='Notes' , tracking=True  ,translate=True)
+    # groups="real_state.group_real_estate_sales"
+    # sales group only view this field by gruops="" option
     active = fields.Boolean(string='Active', default=True)
     # *info* default mean default text or choice or boolean display in ui
     price = fields.Float(string='Price', required=True, tracking=True)
@@ -149,19 +151,32 @@ class Property(models.Model):
         
     # Workflow Methods
     def action_draft(self):
-        self.state = 'draft'
+    # when i push button call method and chabge state and create record in histiry model
+        for rec in self :
+            rec.create_history(rec.state,'draft',"")
+            rec.state = 'draft'
         
     def action_available(self):
-        self.state = 'available'
+    # when i push button call method and chabge state and create record in histiry model
+        for rec in self :
+            rec.create_history(rec.state,'available',"")
+            self.state = 'available'
         
     def action_sold(self):
-        self.state = 'sold'
-
+    # when i push button call method and chabge state and create record in histiry model
+        for rec in self :
+            rec.create_history(rec.state,'sold',"")
+            self.state = 'sold'
     def action_canceled(self):
-        self.state = 'canceled'
+    # when i push button call method and chabge state and create record in histiry model
+         for rec in self :
+            rec.create_history(rec.state,'canceled',"")
+            self.state = 'canceled'
         
     def action_closed(self):
-        self.state = 'closed'
+    # when i push button call method and chabge state and create record in histiry model
+        for rec in self :
+            self.state = 'closed'
 
 
     # Override Create Method  
@@ -174,3 +189,66 @@ class Property(models.Model):
     def write_method(self, vals):
         print("print in write  method")
         return super(Property, self).write(vals)
+    
+    def offer_env(self):
+        # from env you can get any date by user or model name and method
+        self.env['real.estate.offer'].create({
+            'name': "offer from env",
+            "price":1850000
+        })
+        
+    @api.model
+    def create_history(self,old_state,new_state,reason):
+        # take argements self and your state and new state and reason for change
+        for rec in self:
+        # for every record in self env get my model for method 
+        # to pass new and old state and reason to save in history model
+            rec.env['real.estate.property.history'].create({
+                'user_id':rec.env.uid,
+                'property_id':rec.id,
+                'old_state':old_state,
+                'new_state':new_state,
+                'reason':reason or "",
+            })
+    @api.model
+    def update_wizard(self):
+        # method in server actions for show wizard
+        update=self.env['ir.actions.actions']._for_xml_id('real_state.wizard_action')
+        # env get all actions by xml id for wizard action id in my app
+        update['context']={'default_property_id':self.id}
+        # context my id is model id for update it 
+        return update
+
+    def search_domain_example(self):
+        domain = [
+        ('state', '=', 'draft'), 
+        ('partner_id', 'in', [1, 2, 3]), 
+        '|', 
+            ('amount_total', '>', 1000), 
+            ('date_order', '>=', '2024-01-01') 
+        ]
+        records = self.env['your.model.name'].search( [domain])
+        return records
+    
+    def action_open_agent(self):
+        """
+        This method opens the agent form for the agent linked to the current record.
+        :return: A dictionary representing the action to open the agent form.
+        """
+        # Get the action reference for the 'real_state.action_agent' XML ID
+        action = self.env['ir.actions.actions']._for_xml_id('real_state.action_agent')
+
+        # Get the ID of the 'real_state.view_agent_form' view
+        view = self.env.ref('real_state.view_agent_form').id
+
+        # Set the 'res.id' (record ID) of the action to the ID of the linked agent
+        action['res_id'] = self.agent_id.id
+
+        # Set the 'views' of the action to a list containing a single element:
+        # - A list representing a view:
+        #     - The first element is the ID of the agent form view (`view`)
+        #     - The second element is the view type, which is 'form' in this case
+        action['views'] = [[view, 'form']]
+
+        # Return the modified action dictionary
+        return action

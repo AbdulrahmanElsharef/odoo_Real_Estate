@@ -14,6 +14,8 @@
             name="Properties" 
             parent="menu_property_root" sequence="1"
         />
+        <!-- groups="group_real_estate_manager" -->
+        <!-- this assighn any group to spcfic menue -->
         <menuitem id="menu_offer" 
             name="Offers" 
             parent="menu_property_root" sequence="2"
@@ -28,6 +30,16 @@
             name="All Properties" 
             parent="menu_property" 
             action="action_property" sequence="1"
+        />
+        <menuitem id="menu_history_sup" 
+            name="Histories" 
+            parent="menu_property" 
+            action="action_history" sequence="2"
+        />
+        <menuitem id="menu_wizard_sup" 
+                name="Updates" 
+                parent="menu_property" 
+                action="wizard_action" sequence="3"
         />
 
         <menuitem id="menu_Offer_sup" 

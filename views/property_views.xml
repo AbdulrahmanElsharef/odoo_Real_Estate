@@ -48,14 +48,28 @@
         <field name="model">real.estate.property</field>
         <field name="arch" type="xml">
             <form>
+             <div class="oe_button_box" name="button_box">
+                        <!-- Button to open the related agent's form view -->
+                        <!-- by class oe_button_box and method -->
+                        <button
+                            class="oe_button_box"
+                            type="object"
+                            name="action_open_agent"
+                            icon="fa-user"
+                            string="Linked Agent"
+                            invisible="not agent_id" />
+                    </div>
                 <!-- *info* define  sheet tag for form  create new record  -->
                 <sheet>
+                <widget name="web_ribbon" title="Closed" bg_color="text-bg-danger" invisable="state != 'closed'" />
+                <!-- web_ribbon widget and title for ui name and text danger for ui and invisable for logic -->
                     <header>
-                        <button name="action_draft" string="Draft" type="object"  class="oe_highlight" invisible="state == 'sold'"/>
+                        <button name="action_draft" string="Draft" type="object"  class="oe_highlight" invisible="state in ('draft','canceled' ,'sold','closed')"/>
+                        <button name="offer_env" string="Offer" type="object"  class="oe_highlight" />
                         <!-- this button for action method of state in models and type="object" for func ,string for ui and class of css -->
-                        <button name="action_available" string="Available" type="object"  class="btn-primary" invisible="state == 'canceled'" />
-                        <button name="action_sold" string="Sold" type="object"  class="btn-success" invisible="state == 'draft'" />
-                        <button name="action_canceled" string="Canceled" type="object" class="btn-danger" invisible="state == 'available'" />
+                        <button name="action_available" string="Available" type="object"  class="btn-primary" invisible="state in ('available','canceled','closed')" />
+                        <button name="action_sold" string="Sold" type="object"  class="btn-success" invisible="state in ('sold','draft' ,'canceled','closed')" />
+                        <button name="action_canceled" string="Canceled" type="object" class="btn-danger" invisible="state in ('canceled','available' ,'draft','closed')" />
                         <field name="state" widget="statusbar" statusbar_visible="draft,available,sold,canceled"/>
                         <!-- this field with statusbarwidget and statusbar_visible to show our model state in ui -->
                     </header>
@@ -67,37 +81,37 @@
                         </h1>
                         <h3>
                         <label for='name'></label>
-                            <field name="name"/>
+                            <field name="name" readonly="state == 'closed'"/>
                         </h3>
                     </div>
                     <!-- *info* multy group for split sheet form in ui  -->
                     <group>
                         <!-- *info* <field name="reference" readonly="1"/> -->
                         <group name="Info" string="Info">
-                            <field name="agent_id"/>
-                            <field name="agent_email"/>
-                            <field name="agent_phone"/>
-                            <field name="state" readonly="1"/>
-                            <field name="price"/>
-                            <field name="best_offer"/>
-                            <field name="is_offer_accepted"/>
-                            <field name="availability_date"/>
-                            <field name="offer_date"/>
-                            <field name="postcode"/>
-                            <field name="property_type" />
-                            <field name="date_created" />
+                            <field name="agent_id" readonly="state == 'closed'"/>
+                            <field name="agent_email" readonly="state == 'closed'"/>
+                            <field name="agent_phone" readonly="state == 'closed'"/>
+                            <field name="state" readonly="1" />
+                            <field name="price" readonly="state == 'closed'"/>
+                            <field name="best_offer" readonly="state == 'closed'"/>
+                            <field name="is_offer_accepted" readonly="state == 'closed'"/>
+                            <field name="availability_date" readonly="state == 'closed'"/>
+                            <field name="offer_date" readonly="state == 'closed'"/>
+                            <field name="postcode" readonly="state == 'closed'"/>
+                            <field name="property_type"  readonly="state == 'closed'"/>
+                            <field name="date_created"  readonly="state == 'closed'"/>
                         </group>
                         <group name="Details" string="Details">
-                            <field name="bedrooms"/>
-                            <field name="bathrooms"/>
-                            <field name="living_area"/>
-                            <field name="garage"/>
-                            <field name="garden"/>
-                            <field name="garden_area"/>
-                            <field name="total_area"/>
-                            <field name="tag_ids" widget="many2many_tags"/>
+                            <field name="bedrooms" readonly="state == 'closed'"/>
+                            <field name="bathrooms" readonly="state == 'closed'"/>
+                            <field name="living_area" readonly="state == 'closed'"/>
+                            <field name="garage" readonly="state == 'closed'"/>
+                            <field name="garden" readonly="state == 'closed'"/>
+                            <field name="garden_area" readonly="state == 'closed'"/>
+                            <field name="total_area" readonly="state == 'closed'"/>
+                            <field name="tag_ids" widget="many2many_tags" readonly="state == 'closed'"/>
                             <!-- widget="many2many_tags"  show relshin by many2many in form -->
-                            <field name="image" widget="image"/>
+                            <field name="image" widget="image" readonly="state == 'closed'"/>
                         </group>
                         <!-- <field name="agent_id"/> -->
                     </group>
@@ -107,15 +121,15 @@
                             <group name="Data" string="Data">
                                 <field name="description"  
                                 required="1"
-                                /> 
+                                 readonly="state == 'closed'"/> 
                                 <!-- means this field is constrains by view this low level restrict -->
-                                <field name="note"/>
+                                <field name="note" readonly="state == 'closed'"/>
                             </group>
                         </page>
                         <page string="Offers">
                             <field name="offer_ids">
-                                <tree  editable="bottom">
-                                    <field name="name"/>
+                                <tree  editable="bottom"  readonly="state == 'closed'">
+                                    <field name="name" />
                                     <field name="phone"/>
                                     <field name="price"/>
                                     <field name="state"/>
