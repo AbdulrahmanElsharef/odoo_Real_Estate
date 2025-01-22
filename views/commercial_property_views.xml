@@ -1,0 +1,103 @@
+<odoo>
+    <!-- Tree View for CommercialProperty -->
+    <record id="view_commercial_property_tree" model="ir.ui.view">
+        <field name="name">real.estate.property.commercial.tree</field>
+        <field name="model">real.estate.property.commercial</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="business_type"/>
+                <field name="lease_term"/>
+                <field name="price"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View for CommercialProperty -->
+    <record id="view_commercial_property_form" model="ir.ui.view">
+        <field name="name">real.estate.property.commercial.form</field>
+        <field name="model">real.estate.property.commercial</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <!-- *info* <field name="reference" readonly="1"/> -->
+                        <group name="Info" string="Info">
+                            <field name="agent_id"/>
+                            <field name="agent_email"/>
+                            <field name="agent_phone"/>
+                            <field name="state" />
+                            <field name="is_offer_accepted"/>
+                            <field name="availability_date"/>
+                            <field name="business_type"/>
+                            <field name="property_type" />
+                            <field name="lease_term" />
+                        </group>
+                        <group name="Details" string="Details">
+                            <field name="bedrooms"/>
+                            <field name="bathrooms"/>
+                            <field name="living_area"/>
+                            <field name="garage"/>
+                            <field name="garden"/>
+                            <field name="garden_area"/>
+                            <field name="total_area"/>
+                            <field name="tag_ids" widget="many2many_tags"/>
+                            <!-- widget="many2many_tags"  show relations by many2many in form -->
+                            <field name="image" widget="image"/>
+                        </group>
+                        <!-- <field name="agent_id"/> -->
+                    </group>
+
+                    <notebook>
+                        <page string="Offers">
+                            <field name="offer_ids">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="price"/>
+                                    <field name="state"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Tags">
+                            <field name="tag_ids">
+                                <tree>
+                                    <field name="name"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View for CommercialProperty -->
+    <record id="view_commercial_property_search" model="ir.ui.view">
+        <field name="name">real.estate.property.commercial.search</field>
+        <field name="model">real.estate.property.commercial</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="business_type"/>
+                <field name="lease_term"/>
+                <filter name="office" string="Office Properties" domain="[('business_type', '=', 'office')]"/>
+                <filter name="retail"  string="Retail Properties" domain="[('business_type', '=', 'retail')]"/>
+                <group string="Group By">
+                    <filter name="business_type" string="Business Type" context="{'group_by': 'business_type'}"/>
+                    <filter name="state"  string="State" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+        <!-- Action for Tag -->
+    <record id="action_commercial" model="ir.actions.act_window">
+        <field name="name">Commercials</field>
+        <field name="res_model">real.estate.property.commercial</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

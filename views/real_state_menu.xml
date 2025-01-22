@@ -5,21 +5,72 @@
     <menuitem id="menu_property_root" 
         name="Real Estate"
         sequence="1"
+        web_icon="alsharq_addons\real_state\static\description\icon.png" 
         />
     <!--  menue items -->
     <!--  *info* take id of root menue in parent  -->
     <!--  *info* and action id from property action -->
-    <menuitem id="menu_property" 
-    name="Properties" 
-    parent="menu_property_root" 
-/>
-    <menuitem id="menu_property_sup" 
-    name="All Properties" 
-    parent="menu_property" 
-    action="action_property" sequence="1"
-/>
-</odoo>
+        <menuitem id="menu_property" 
+            name="Properties" 
+            parent="menu_property_root" sequence="1"
+        />
+        <!-- groups="group_real_estate_manager" -->
+        <!-- this assighn any group to spcfic menue -->
+        <menuitem id="menu_offer" 
+            name="Offers" 
+            parent="menu_property_root" sequence="2"
+        />
+        <menuitem id="menu_configrations" 
+            name="Configrations" 
+            parent="menu_property_root" sequence="3"
+        />
+        <menuitem
+        id="menu_open_support"
+        parent="menu_property_root"
+        name="Support"
+        action="action_open_Support"
+        sequence="4"
+    />
+
     <!-- Sub Menus -->
+        <menuitem id="menu_property_sup" 
+            name="All Properties" 
+            parent="menu_property" 
+            action="action_property" sequence="1"
+        />
+        <menuitem id="menu_history_sup" 
+            name="Histories" 
+            parent="menu_property" 
+            action="action_history" sequence="2"
+        />
+        <menuitem id="menu_wizard_sup" 
+                name="Updates" 
+                parent="menu_property" 
+                action="wizard_action" sequence="3"
+        />
+
+        <menuitem id="menu_Offer_sup" 
+            name="All Offers" 
+            parent="menu_offer" 
+            action="action_offer" sequence="1"
+        />
+        <menuitem id="menu_agent_sup" 
+            name="Agents" 
+            parent="menu_configrations" 
+            action="action_agent" sequence="1"
+        />
+        <menuitem id="menu_tag_sup" 
+            name="Tags" 
+            parent="menu_configrations" 
+            action="action_tag" sequence="2"
+        />
+        <menuitem id="menu_commercial_sup" 
+            name="Commercials" 
+            parent="menu_configrations" 
+            action="action_commercial" sequence="3"
+        />
+</odoo>
+
     <!-- <menuitem id="menu_hospital_operations"
               name="Operations"
               parent="menu_hospital_root"

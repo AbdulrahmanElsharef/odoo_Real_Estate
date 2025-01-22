@@ -1,0 +1,92 @@
+real_estate/
+├── __init__.py        # Empty initializer file
+├── __manifest__.py    # Module manifest file defining app metadata
+├── models/
+│   ├── __init__.py    # Empty initializer file
+│   ├── property.py    # Python file defining the "property" model
+│   ├── offer.py       # Python file defining the "offer" model
+│   └── agent.py       # Python file defining the "agent" model
+├── views/
+│   ├── property_views.xml  # XML file defining views for the "property" model
+│   ├── offer_views.xml     # XML file defining views for the "offer" model
+│   ├── agent_views.xml     # XML file defining views for the "agent" model
+│   └── wizard_views.xml    # XML file defining views for wizards (forms)
+├── security/
+│   ├── ir.model.access.csv  # CSV file defining access control rules
+│   └── security.xml       # XML file defining security groups and access rules
+├── data/
+│   ├── sequence.xml       # XML file defining sequences (e.g., for unique IDs)
+│   └── automated_actions.xml  # XML file defining automated actions (Cron Jobs)
+├── reports/
+│   ├── property_report.xml  # XML file defining report templates for properties
+│   └── property_report_template.xml  # XML file defining report structure for properties
+├── static/
+│   ├── description/
+│   │   └── icon.png        # Application icon
+│   └── src/
+│       └── css/
+│           └── custom.css     # Custom CSS styles for the application
+└── wizard/
+    └── __init__.py        # Empty initializer file
+
+**Additional Folders (Explanation):**
+
+├── inherit/
+│   │   **Explanation:** This folder likely contains code for inheriting existing models or views to customize or extend their functionality. Odoo supports two main inheritance approaches:
+│   │       - **model inherit** (traditional.inherit, delegations.inherit):
+│   │           - Allows you to inherit from existing models and potentially customize their fields, methods, or behavior.
+│   │           - `traditional.inherit` inherits all fields and methods from the parent model.
+│   │           - `delegations.inherit` inherits only specific fields from the parent model.
+│   │   - **views inherit**:
+│   │       - Allows you to inherit from existing views and modify their structure or behavior.
+
+**Window Actions (ir.actions.act_window):**
+
+- **Description:** These actions open windows within the Odoo interface.
+- **Use Cases:**
+    - Opening forms for creating or editing records.
+    - Displaying list views of records.
+    - Opening wizard windows for specific tasks.
+
+**Server Actions (ir.actions.server):**
+
+- **Description:** These actions are executed on the Odoo server and can perform various tasks.
+- **Use Cases:**
+    - Modifying existing records.
+    - Creating new records.
+    - Executing Python code to implement complex business logic.
+    - Triggering workflow transitions.
+    - Performing batch operations on records.
+
+**Automated Actions (ir.cron):**
+
+- **Description:** These actions are scheduled to run automatically at specific intervals (e.g., daily, weekly, monthly).
+- **Use Cases:**
+    - Background tasks.
+    - Scheduled reports generation.
+    - Data synchronization.
+
+**Report Actions (ir.actions.report):**
+
+- **Description:** These actions generate and display reports.
+- **Use Cases:**
+    - Generating PDF or HTML reports.
+    - Printing labels.
+    - Exporting data to Excel.
+
+**URL Actions (ir.actions.act_url):**
+
+- **Description:** These actions open external URLs in a new browser tab or window.
+- **Use Cases:**
+    - Opening external websites.
+    - Accessing external documents.
+    - Redirecting users to other applications.
+
+**Client Actions (ir.actions.client):**
+
+- **Description:** These actions are executed on the client-side (in the user's browser).
+- **Use Cases:**
+    - Triggering JavaScript events.
+    - Opening dialogs or notifications.
+    - Updating the user interface without server interaction.
+    - Implementing custom JavaScript logic for UI enhancements.

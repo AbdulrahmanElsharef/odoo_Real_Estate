@@ -1,0 +1,96 @@
+<odoo>
+
+        <!-- Report Template for Property -->
+    <template id="property_report_template">
+        <t t-call="web.html_container">
+        <!-- t doe qweb t-call fro get web htm container for report -->
+            <t t-call="web.external_layout">
+            <!-- to get extrenal_layout for company name and data header and footer from users and companies -->
+            <!-- <t t-call="web.basic_layout"> -->
+            <!-- to get basic_layout for base template without any data -->
+                <t t-foreach="docs" t-as="property">
+                <!-- t-foreach for loob in docs is all records and t-as  name of evry recod to call it  -->
+                    <div class="page">
+                        <h2>Property Report</h2>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Field</th>
+                                    <th>Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Property Name</strong></td>
+                                    <td><span t-field="property.name"/></td>
+                                </tr>
+                                <tr>
+                        <!-- Example	<span t-field="property.name"/>	t-field show field as show in ui form and tree view
+                        <span t-esc="property.name"/>  t-esc show field as in model only not in view -->
+                                    <td><strong>Description</strong></td>
+                                    <td><span t-field="property.description"/></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Price</strong></td>
+                                    <td><span t-field="property.price"/></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>State</strong></td>
+                                    <td><span t-field="property.state"/></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Bedrooms</strong></td>
+                                    <td><span t-field="property.bedrooms"/></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Bathrooms</strong></td>
+                                    <td><span t-field="property.bathrooms"/></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Garden</strong></td>
+                                    <td><span t-field="property.garden"/></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Garden Area</strong></td>
+                                    <td><span t-field="property.garden_area"/></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Total Area</strong></td>
+                                    <td><span t-field="property.total_area"/></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Availability Date</strong></td>
+                                    <td><span t-field="property.availability_date"/></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Agent</strong></td>
+                                    <td><span t-field="property.agent_id.name"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                                            <!-- Offer Details Section -->
+                        <h3>Offers</h3>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Offer Name</th>
+                                    <th>Price</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="property.offer_ids" t-as="offer">
+                                    <tr>
+                                        <td><span t-field="offer.name"/></td>
+                                        <td><span t-field="offer.price"/></td>
+                                        <td><span t-field="offer.state"/></td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

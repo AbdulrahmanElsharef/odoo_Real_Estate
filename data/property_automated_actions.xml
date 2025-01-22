@@ -1,0 +1,24 @@
+<odoo>
+    <!-- Automated Action (Cron Job) to Publish Books -->
+    <record id="cron_publish_Property" model="ir.cron">
+    <!-- "ir.cron" name of odoo automated action -->
+        <field name="name">Closed Property Automatically</field>
+        <!-- name of Automated action/ -->
+        <field name="model_id" ref="model_real_estate_property"/>
+        <!-- name of related model to action -->
+        <field name="state">code</field>
+        <!-- kinde of state is code of python method in model -->
+        <field name="code">model.closed_property_automatically</field>
+        <!-- python code to excute -->
+        <field name="interval_number">1</field>
+        <!-- how many time to excute -->
+        <field name="interval_type">days</field>
+        <!-- interval_type  (days , minutes , seconde) -->
+        <field name="numbercall">-1</field>
+         <!-- to unlmited run this action -->
+        <field name="doall">False</field>
+        <field name="active">True</field>
+
+        <!-- make action enaple to run  -->
+    </record>
+</odoo>

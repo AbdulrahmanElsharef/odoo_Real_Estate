@@ -1,0 +1,957 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* real_state
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0-20241022\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-20 23:25+0000\n"
+"PO-Revision-Date: 2025-01-20 23:25+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: real_state
+#: model_terms:ir.ui.view,arch_db:real_state.property_report_template
+msgid "<strong>Agent</strong>"
+msgstr "<strong>الوكيل</strong>"
+
+#. module: real_state
+#: model_terms:ir.ui.view,arch_db:real_state.property_report_template
+msgid "<strong>Availability Date</strong>"
+msgstr "<strong>تاريخ التوفر</strong>"
+
+#. module: real_state
+#: model_terms:ir.ui.view,arch_db:real_state.property_report_template
+msgid "<strong>Bathrooms</strong>"
+msgstr "<strong>الحمامات</strong>"
+
+#. module: real_state
+#: model_terms:ir.ui.view,arch_db:real_state.property_report_template
+msgid "<strong>Bedrooms</strong>"
+msgstr "<strong>الغرف</strong>"
+
+#. module: real_state
+#: model_terms:ir.ui.view,arch_db:real_state.property_report_template
+msgid "<strong>Description</strong>"
+msgstr "<strong>الوصف</strong>"
+
+#. module: real_state
+#: model_terms:ir.ui.view,arch_db:real_state.property_report_template
+msgid "<strong>Garden Area</strong>"
+msgstr "<strong>مساحة الحديقة</strong>"
+
+#. module: real_state
+#: model_terms:ir.ui.view,arch_db:real_state.property_report_template
+msgid "<strong>Garden</strong>"
+msgstr "<strong>حديقة</strong>"
+
+#. module: real_state
+#: model_terms:ir.ui.view,arch_db:real_state.property_report_template
+msgid "<strong>Price</strong>"
+msgstr "<strong>السعر</strong>"
+
+#. module: real_state
+#: model_terms:ir.ui.view,arch_db:real_state.property_report_template
+msgid "<strong>Property Name</strong>"
+msgstr "<strong>اسم العقار</strong>"
+
+#. module: real_state
+#: model_terms:ir.ui.view,arch_db:real_state.property_report_template
+msgid "<strong>State</strong>"
+msgstr "<strong>الحالة</strong>"
+
+#. module: real_state
+#: model_terms:ir.ui.view,arch_db:real_state.property_report_template
+msgid "<strong>Total Area</strong>"
+msgstr "<strong>المساحة الإجمالية</strong>"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__message_needaction
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__message_needaction
+msgid "Action Needed"
+msgstr "إجراء مطلوب"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__active
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__active
+msgid "Active"
+msgstr "نشط"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__activity_ids
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__activity_ids
+msgid "Activities"
+msgstr "الأنشطة"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__activity_exception_decoration
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "تزيين استثناء النشاط"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__activity_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__activity_state
+msgid "Activity State"
+msgstr "حالة النشاط"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__activity_type_icon
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "أيقونة نوع النشاط"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_offer__agent_id
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__agent_id
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__agent_id
+#: model_terms:ir.ui.view,arch_db:real_state.view_offer_search
+#: model_terms:ir.ui.view,arch_db:real_state.view_property_search
+msgid "Agent"
+msgstr "الوكيل"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__agent_email
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__agent_email
+msgid "Agent Email"
+msgstr "بريد الوكيل"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_agent__name
+msgid "Agent Name"
+msgstr "اسم الوكيل"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__agent_phone
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__agent_phone
+msgid "Agent Phone"
+msgstr "هاتف الوكيل"
+
+#. module: real_state
+#: model:ir.actions.act_window,name:real_state.action_agent
+#: model:ir.ui.menu,name:real_state.menu_agent_sup
+msgid "Agents"
+msgstr "الوكلاء"
+
+#. module: real_state
+#: model:ir.ui.menu,name:real_state.menu_Offer_sup
+msgid "All Offers"
+msgstr "جميع العروض"
+
+#. module: real_state
+#: model:ir.ui.menu,name:real_state.menu_property_sup
+msgid "All Properties"
+msgstr "جميع العقارات"
+
+#. module: real_state
+#: model:ir.model.fields.selection,name:real_state.selection__real_estate_property__property_type__apartment
+#: model:ir.model.fields.selection,name:real_state.selection__real_estate_property_commercial__property_type__apartment
+msgid "Apartment"
+msgstr "شقة"
+
+#. module: real_state
+#: model_terms:ir.ui.view,arch_db:real_state.view_property_search
+msgid "Area"
+msgstr "المساحة"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__message_attachment_count
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__message_attachment_count
+msgid "Attachment Count"
+msgstr "عدد المرفقات"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__availability_date
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__availability_date
+msgid "Availability Date"
+msgstr "تاريخ التوفر"
+
+#. module: real_state
+#: model:ir.model.fields.selection,name:real_state.selection__property_wizard__state__available
+#: model:ir.model.fields.selection,name:real_state.selection__real_estate_property__state__available
+#: model:ir.model.fields.selection,name:real_state.selection__real_estate_property_commercial__state__available
+#: model_terms:ir.ui.view,arch_db:real_state.view_property_form
+#: model_terms:ir.ui.view,arch_db:real_state.view_property_search
+msgid "Available"
+msgstr "متاح"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__bathrooms
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__bathrooms
+msgid "Bathrooms"
+msgstr "الحمامات"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__bedrooms
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__bedrooms
+msgid "Bedrooms"
+msgstr "الغرف"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__best_offer
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__best_offer
+msgid "Best Offer"
+msgstr "أفضل عرض"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__business_type
+#: model_terms:ir.ui.view,arch_db:real_state.view_commercial_property_search
+msgid "Business Type"
+msgstr "نوع النشاط التجاري"
+
+#. module: real_state
+#: model_terms:ir.ui.view,arch_db:real_state.view_property_wizard_form
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: real_state
+#: model:ir.model.fields.selection,name:real_state.selection__property_wizard__state__canceled
+#: model:ir.model.fields.selection,name:real_state.selection__real_estate_property__state__canceled
+#: model:ir.model.fields.selection,name:real_state.selection__real_estate_property_commercial__state__canceled
+#: model_terms:ir.ui.view,arch_db:real_state.view_property_form
+#: model_terms:ir.ui.view,arch_db:real_state.view_property_search
+msgid "Canceled"
+msgstr "ملغى"
+
+#. module: real_state
+#: model:ir.model.fields.selection,name:real_state.selection__real_estate_property__state__closed
+#: model:ir.model.fields.selection,name:real_state.selection__real_estate_property_commercial__state__closed
+#: model_terms:ir.ui.view,arch_db:real_state.view_property_form
+msgid "Closed"
+msgstr "مغلق"
+
+#. module: real_state
+#: model:ir.actions.server,name:real_state.action_mark_properties_closed
+msgid "Closed "
+msgstr "مغلق "
+
+#. module: real_state
+#: model:ir.actions.server,name:real_state.cron_publish_Property_ir_actions_server
+msgid "Closed Property Automatically"
+msgstr "إغلاق العقار تلقائياً"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__code
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__code
+msgid "Code"
+msgstr "الكود"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_tag__color
+msgid "Color Index"
+msgstr "فهرس اللون"
+
+#. module: real_state
+#: model_terms:ir.ui.view,arch_db:real_state.view_tag_search
+msgid "Colored Tags"
+msgstr "العلامات الملونة"
+
+#. module: real_state
+#: model:ir.actions.act_window,name:real_state.action_commercial
+#: model:ir.ui.menu,name:real_state.menu_commercial_sup
+msgid "Commercials"
+msgstr "تجاري"
+
+#. module: real_state
+#: model:ir.ui.menu,name:real_state.menu_configrations
+msgid "Configrations"
+msgstr "الإعدادات"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__date_created
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__date_created
+msgid "Created On"
+msgstr "تم الإنشاء في"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_property_wizard__create_uid
+#: model:ir.model.fields,field_description:real_state.field_real_estate_agent__create_uid
+#: model:ir.model.fields,field_description:real_state.field_real_estate_offer__create_uid
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__create_uid
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__create_uid
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_history__create_uid
+#: model:ir.model.fields,field_description:real_state.field_real_estate_tag__create_uid
+msgid "Created by"
+msgstr "تم الإنشاء بواسطة"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_property_wizard__create_date
+#: model:ir.model.fields,field_description:real_state.field_real_estate_agent__create_date
+#: model:ir.model.fields,field_description:real_state.field_real_estate_offer__create_date
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__create_date
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__create_date
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_history__create_date
+#: model:ir.model.fields,field_description:real_state.field_real_estate_tag__create_date
+msgid "Created on"
+msgstr "تم الإنشاء في"
+
+#. module: real_state
+#: model_terms:ir.ui.view,arch_db:real_state.view_property_form
+msgid "Data"
+msgstr "البيانات"
+
+#. module: real_state
+#: model_terms:ir.ui.view,arch_db:real_state.view_property_kanban
+msgid "Date:"
+msgstr "التاريخ:"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__description
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__description
+msgid "Description"
+msgstr "الوصف"
+
+#. module: real_state
+#: model_terms:ir.ui.view,arch_db:real_state.view_commercial_property_form
+#: model_terms:ir.ui.view,arch_db:real_state.view_property_form
+msgid "Details"
+msgstr "التفاصيل"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_property_wizard__display_name
+#: model:ir.model.fields,field_description:real_state.field_real_estate_agent__display_name
+#: model:ir.model.fields,field_description:real_state.field_real_estate_offer__display_name
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__display_name
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__display_name
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_history__display_name
+#: model:ir.model.fields,field_description:real_state.field_real_estate_tag__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: real_state
+#: model:ir.model.fields.selection,name:real_state.selection__property_wizard__state__draft
+#: model:ir.model.fields.selection,name:real_state.selection__real_estate_property__state__draft
+#: model:ir.model.fields.selection,name:real_state.selection__real_estate_property_commercial__state__draft
+#: model_terms:ir.ui.view,arch_db:real_state.view_property_form
+#: model_terms:ir.ui.view,arch_db:real_state.view_property_search
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_agent__email
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+#. module: real_state
+#: model_terms:ir.ui.view,arch_db:real_state.property_report_template
+msgid "Field"
+msgstr "الحقل"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__message_follower_ids
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__message_follower_ids
+msgid "Followers"
+msgstr "المتابعون"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__message_partner_ids
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "المتابعون (الشركاء)"
+
+#. module: real_state
+#: model:ir.model.fields,help:real_state.field_real_estate_property__activity_type_icon
+#: model:ir.model.fields,help:real_state.field_real_estate_property_commercial__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "أيقونة Font Awesome مثل fa-tasks"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__garage
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__garage
+msgid "Garage"
+msgstr "مرآب"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__garden
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__garden
+msgid "Garden"
+msgstr "حديقة"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__garden_area
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__garden_area
+msgid "Garden Area (sqm)"
+msgstr "مساحة الحديقة (م²)"
+
+#. module: real_state
+#: model_terms:ir.ui.view,arch_db:real_state.view_agent_search
+#: model_terms:ir.ui.view,arch_db:real_state.view_commercial_property_search
+#: model_terms:ir.ui.view,arch_db:real_state.view_offer_search
+#: model_terms:ir.ui.view,arch_db:real_state.view_tag_search
+msgid "Group By"
+msgstr "التجميع حسب"
+
+#. module: real_state
+#: model:ir.module.category,description:real_state.module_category_real_estate
+msgid "Groups related to Real Estate Management"
+msgstr "المجموعات المتعلقة بإدارة العقارات"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__has_message
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__has_message
+msgid "Has Message"
+msgstr "يحتوي على رسالة"
+
+#. module: real_state
+#: model_terms:ir.actions.act_window,help:real_state.action_agent
+msgid "Hi Abdo Create a new agent"
+msgstr "مرحباً عبدو، قم بإنشاء وكيل جديد"
+
+#. module: real_state
+#: model_terms:ir.actions.act_window,help:real_state.action_offer
+msgid "Hi Abdo Create a new offer"
+msgstr "مرحباً عبدو، قم بإنشاء عرض جديد"
+
+#. module: real_state
+#: model_terms:ir.actions.act_window,help:real_state.action_property
+msgid "Hi Abdo Create a new property"
+msgstr "مرحباً عبدو، قم بإنشاء عقار جديد"
+
+#. module: real_state
+#: model:ir.ui.menu,name:real_state.menu_history_sup
+msgid "Histories"
+msgstr "السجلات"
+
+#. module: real_state
+#: model:ir.model.fields.selection,name:real_state.selection__real_estate_property__property_type__house
+#: model:ir.model.fields.selection,name:real_state.selection__real_estate_property_commercial__property_type__house
+msgid "House"
+msgstr "منزل"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_property_wizard__id
+#: model:ir.model.fields,field_description:real_state.field_real_estate_agent__id
+#: model:ir.model.fields,field_description:real_state.field_real_estate_offer__id
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__id
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__id
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_history__id
+#: model:ir.model.fields,field_description:real_state.field_real_estate_tag__id
+msgid "ID"
+msgstr "المعرف"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__activity_exception_icon
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__activity_exception_icon
+msgid "Icon"
+msgstr "الأيقونة"
+
+#. module: real_state
+#: model:ir.model.fields,help:real_state.field_real_estate_property__activity_exception_icon
+#: model:ir.model.fields,help:real_state.field_real_estate_property_commercial__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "أيقونة للإشارة إلى نشاط استثنائي."
+
+#. module: real_state
+#: model:ir.model.fields,help:real_state.field_real_estate_property__message_needaction
+#: model:ir.model.fields,help:real_state.field_real_estate_property_commercial__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "إذا تم تحديده، فإن الرسائل الجديدة تتطلب انتباهك."
+
+#. module: real_state
+#: model:ir.model.fields,help:real_state.field_real_estate_property__message_has_error
+#: model:ir.model.fields,help:real_state.field_real_estate_property_commercial__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr "إذا تم تحديده، فإن بعض الرسائل تحتوي على خطأ في التسليم."
+
+#. module: real_state
+#: model_terms:ir.ui.view,arch_db:real_state.view_agent_form
+#: model_terms:ir.ui.view,arch_db:real_state.view_commercial_property_form
+#: model_terms:ir.ui.view,arch_db:real_state.view_property_form
+msgid "Info"
+msgstr "معلومات"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__message_is_follower
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__message_is_follower
+msgid "Is Follower"
+msgstr "متابع"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_property_wizard__write_uid
+#: model:ir.model.fields,field_description:real_state.field_real_estate_agent__write_uid
+#: model:ir.model.fields,field_description:real_state.field_real_estate_offer__write_uid
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__write_uid
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__write_uid
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_history__write_uid
+#: model:ir.model.fields,field_description:real_state.field_real_estate_tag__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_property_wizard__write_date
+#: model:ir.model.fields,field_description:real_state.field_real_estate_agent__write_date
+#: model:ir.model.fields,field_description:real_state.field_real_estate_offer__write_date
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__write_date
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__write_date
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_history__write_date
+#: model:ir.model.fields,field_description:real_state.field_real_estate_tag__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__lease_term
+msgid "Lease Term (Months)"
+msgstr "مدة الإيجار (أشهر)"
+
+#. module: real_state
+#: model_terms:ir.ui.view,arch_db:real_state.view_property_form
+msgid "Linked Agent"
+msgstr "الوكيل المرتبط"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__living_area
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__living_area
+msgid "Living Area (sqm)"
+msgstr "مساحة المعيشة (م²)"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__message_has_error
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__message_has_error
+msgid "Message Delivery error"
+msgstr "خطأ في تسليم الرسالة"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__message_ids
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__message_ids
+msgid "Messages"
+msgstr "الرسائل"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__my_activity_date_deadline
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "موعد النشاط الخاص بي"
+
+#. module: real_state
+#: model_terms:ir.ui.view,arch_db:real_state.view_agent_search
+#: model_terms:ir.ui.view,arch_db:real_state.view_tag_search
+msgid "Name"
+msgstr "الاسم"
+
+#. module: real_state
+#: model_terms:ir.ui.view,arch_db:real_state.view_property_history
+msgid "New"
+msgstr "جديد"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_history__new_state
+msgid "New State"
+msgstr "الحالة الجديدة"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__activity_date_deadline
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "موعد النشاط التالي"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__activity_summary
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__activity_summary
+msgid "Next Activity Summary"
+msgstr "ملخص النشاط التالي"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__activity_type_id
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__activity_type_id
+msgid "Next Activity Type"
+msgstr "نوع النشاط التالي"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__note
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__note
+msgid "Notes"
+msgstr "ملاحظات"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__message_needaction_counter
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__message_needaction_counter
+msgid "Number of Actions"
+msgstr "عدد الإجراءات"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__message_has_error_counter
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__message_has_error_counter
+msgid "Number of errors"
+msgstr "عدد الأخطاء"
+
+#. module: real_state
+#: model:ir.model.fields,help:real_state.field_real_estate_property__message_needaction_counter
+#: model:ir.model.fields,help:real_state.field_real_estate_property_commercial__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "عدد الرسائل التي تتطلب إجراءً"
+
+#. module: real_state
+#: model:ir.model.fields,help:real_state.field_real_estate_property__message_has_error_counter
+#: model:ir.model.fields,help:real_state.field_real_estate_property_commercial__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "عدد الرسائل التي تحتوي على خطأ في التسليم"
+
+#. module: real_state
+#: model_terms:ir.ui.view,arch_db:real_state.view_offer_form
+#: model_terms:ir.ui.view,arch_db:real_state.view_property_form
+msgid "Offer"
+msgstr "عرض"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__is_offer_accepted
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__is_offer_accepted
+msgid "Offer Accepted"
+msgstr "العرض مقبول"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__offer_date
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__offer_date
+msgid "Offer Date"
+msgstr "تاريخ العرض"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_offer__name
+#: model_terms:ir.ui.view,arch_db:real_state.property_report_template
+msgid "Offer Name"
+msgstr "اسم العرض"
+
+#. module: real_state
+#: model:ir.actions.act_window,name:real_state.action_offer
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__offer_ids
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__offer_ids
+#: model:ir.ui.menu,name:real_state.menu_offer
+#: model_terms:ir.ui.view,arch_db:real_state.property_report_template
+#: model_terms:ir.ui.view,arch_db:real_state.view_commercial_property_form
+#: model_terms:ir.ui.view,arch_db:real_state.view_property_form
+msgid "Offers"
+msgstr "العروض"
+
+#. module: real_state
+#: model:ir.model.fields.selection,name:real_state.selection__real_estate_property_commercial__business_type__office
+msgid "Office"
+msgstr "مكتب"
+
+#. module: real_state
+#: model_terms:ir.ui.view,arch_db:real_state.view_commercial_property_search
+msgid "Office Properties"
+msgstr "العقارات المكتبية"
+
+#. module: real_state
+#: model_terms:ir.ui.view,arch_db:real_state.view_property_history
+msgid "Old"
+msgstr "قديم"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_history__old_state
+msgid "Old State"
+msgstr "الحالة القديمة"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_agent__phone
+#: model:ir.model.fields,field_description:real_state.field_real_estate_offer__phone
+msgid "Phone"
+msgstr "الهاتف"
+
+#. module: real_state
+#: model_terms:ir.ui.view,arch_db:real_state.view_agent_form
+#: model_terms:ir.ui.view,arch_db:real_state.view_tag_form
+msgid "Porporites"
+msgstr "العقارات"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__postcode
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__postcode
+msgid "Postcode"
+msgstr "الرمز البريدي"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_offer__price
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__price
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__price
+#: model_terms:ir.ui.view,arch_db:real_state.property_report_template
+msgid "Price"
+msgstr "السعر"
+
+#. module: real_state
+#: model_terms:ir.ui.view,arch_db:real_state.view_property_kanban
+msgid "Price:"
+msgstr "السعر:"
+
+#. module: real_state
+#: model:ir.actions.act_window,name:real_state.action_property
+#: model:ir.model.fields,field_description:real_state.field_real_estate_agent__property_ids
+#: model:ir.model.fields,field_description:real_state.field_real_estate_tag__property_ids
+#: model:ir.ui.menu,name:real_state.menu_property
+msgid "Properties"
+msgstr "العقارات"
+
+#. module: real_state
+#: model:ir.model,name:real_state.model_real_estate_property
+#: model:ir.model.fields,field_description:real_state.field_property_wizard__property_id
+#: model:ir.model.fields,field_description:real_state.field_real_estate_offer__property_id
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_history__property_id
+#: model_terms:ir.ui.view,arch_db:real_state.view_offer_search
+msgid "Property"
+msgstr "العقار"
+
+#. module: real_state
+#: model:ir.actions.act_window,name:real_state.action_history
+msgid "Property History"
+msgstr "سجل العقار"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__image
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__image
+#: model_terms:ir.ui.view,arch_db:real_state.view_property_kanban
+msgid "Property Image"
+msgstr "صورة العقار"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__name
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__name
+msgid "Property Name"
+msgstr "اسم العقار"
+
+#. module: real_state
+#: model_terms:ir.ui.view,arch_db:real_state.property_report_template
+msgid "Property Report"
+msgstr "تقرير العقار"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__property_type
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__property_type
+msgid "Property Type"
+msgstr "نوع العقار"
+
+#. module: real_state
+#: model:ir.model,name:real_state.model_property_wizard
+msgid "Property Wizard"
+msgstr "معالج العقار"
+
+#. module: real_state
+#: model:ir.actions.report,name:real_state.property_report
+msgid "Property-PDF"
+msgstr "عقار-PDF"
+
+#. module: real_state
+#: model:ir.ui.menu,name:real_state.menu_property_root
+msgid "Real Estate"
+msgstr "العقارات"
+
+#. module: real_state
+#: model:ir.model,name:real_state.model_real_estate_agent
+msgid "Real Estate Agent"
+msgstr "وكيل العقارات"
+
+#. module: real_state
+#: model:ir.module.category,name:real_state.module_category_real_estate
+msgid "Real Estate Category"
+msgstr "فئة العقارات"
+
+#. module: real_state
+#: model:res.groups,name:real_state.group_real_estate_manager
+msgid "Real Estate Manager"
+msgstr "مدير العقارات"
+
+#. module: real_state
+#: model:ir.model,name:real_state.model_real_estate_offer
+msgid "Real Estate Offer"
+msgstr "عرض العقارات"
+
+#. module: real_state
+#: model:res.groups,name:real_state.group_real_estate_sales
+msgid "Real Estate Sales"
+msgstr "مبيعات العقارات"
+
+#. module: real_state
+#: model:ir.model,name:real_state.model_real_estate_tag
+msgid "Real Estate Tag"
+msgstr "علامة العقارات"
+
+#. module: real_state
+#: model:res.groups,name:real_state.group_real_estate_user
+msgid "Real Estate User"
+msgstr "مستخدم العقارات"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_property_wizard__reason
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_history__reason
+msgid "Reason"
+msgstr "السبب"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_agent__ref
+#: model:ir.model.fields,field_description:real_state.field_real_estate_offer__ref
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__ref
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__ref
+msgid "Ref"
+msgstr "المرجع"
+
+#. module: real_state
+#: model_terms:ir.ui.view,arch_db:real_state.view_offer_form
+msgid "Response"
+msgstr "الرد"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__activity_user_id
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__activity_user_id
+msgid "Responsible User"
+msgstr "المستخدم المسؤول"
+
+#. module: real_state
+#: model:ir.model.fields.selection,name:real_state.selection__real_estate_property_commercial__business_type__retail
+msgid "Retail"
+msgstr "بيع بالتجزئة"
+
+#. module: real_state
+#: model_terms:ir.ui.view,arch_db:real_state.view_commercial_property_search
+msgid "Retail Properties"
+msgstr "العقارات التجارية"
+
+#. module: real_state
+#: model:ir.model.fields.selection,name:real_state.selection__property_wizard__state__sold
+#: model:ir.model.fields.selection,name:real_state.selection__real_estate_property__state__sold
+#: model:ir.model.fields.selection,name:real_state.selection__real_estate_property_commercial__state__sold
+#: model_terms:ir.ui.view,arch_db:real_state.view_offer_search
+#: model_terms:ir.ui.view,arch_db:real_state.view_property_form
+#: model_terms:ir.ui.view,arch_db:real_state.view_property_search
+msgid "Sold"
+msgstr "تم البيع"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_property_wizard__state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_offer__state
+#: model_terms:ir.ui.view,arch_db:real_state.view_commercial_property_search
+msgid "State"
+msgstr "الحالة"
+
+#. module: real_state
+#: model_terms:ir.ui.view,arch_db:real_state.view_property_kanban
+msgid "State:"
+msgstr "الحالة:"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__state
+#: model_terms:ir.ui.view,arch_db:real_state.property_report_template
+msgid "Status"
+msgstr "الحالة"
+
+#. module: real_state
+#: model:ir.model.fields,help:real_state.field_real_estate_property__activity_state
+#: model:ir.model.fields,help:real_state.field_real_estate_property_commercial__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"الحالة بناءً على الأنشطة\n"
+"متأخر: تاريخ الاستحقاق قد انتهى\n"
+"اليوم: تاريخ النشاط هو اليوم\n"
+"مخطط: أنشطة مستقبلية."
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_tag__name
+msgid "Tag Name"
+msgstr "اسم العلامة"
+
+#. module: real_state
+#: model:ir.model.constraint,message:real_state.constraint_real_estate_tag_unique_tag_name
+msgid "Tag name must be unique!"
+msgstr "يجب أن يكون اسم العلامة فريداً!"
+
+#. module: real_state
+#: model:ir.actions.act_window,name:real_state.action_tag
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__tag_ids
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__tag_ids
+#: model:ir.ui.menu,name:real_state.menu_tag_sup
+#: model_terms:ir.ui.view,arch_db:real_state.view_commercial_property_form
+msgid "Tags"
+msgstr "العلامات"
+
+#. module: real_state
+#: model:ir.model.constraint,message:real_state.constraint_real_estate_property_check_price
+#: model:ir.model.constraint,message:real_state.constraint_real_estate_property_commercial_check_price
+msgid "The price must be  positive."
+msgstr "يجب أن يكون السعر موجباً."
+
+#. module: real_state
+#: model:ir.model.constraint,message:real_state.constraint_real_estate_property_commercial_unique_name
+#: model:ir.model.constraint,message:real_state.constraint_real_estate_property_unique_name
+msgid "This name must be unique."
+msgstr "يجب أن يكون هذا الاسم فريداً."
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property__total_area
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_commercial__total_area
+msgid "Total Area (sqm)"
+msgstr "المساحة الإجمالية (م²)"
+
+#. module: real_state
+#: model_terms:ir.ui.view,arch_db:real_state.view_property_search
+msgid "Type"
+msgstr "النوع"
+
+#. module: real_state
+#: model:ir.model.fields,help:real_state.field_real_estate_property__activity_exception_decoration
+#: model:ir.model.fields,help:real_state.field_real_estate_property_commercial__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "نوع النشاط الاستثنائي المسجل."
+
+#. module: real_state
+#: model_terms:ir.ui.view,arch_db:real_state.view_property_wizard_form
+msgid "Update"
+msgstr "تحديث"
+
+#. module: real_state
+#: model:ir.actions.act_window,name:real_state.wizard_action
+#: model_terms:ir.ui.view,arch_db:real_state.view_property_wizard_form
+msgid "Update Property State"
+msgstr "تحديث حالة العقار"
+
+#. module: real_state
+#: model:ir.actions.server,name:real_state.property_action_wizard
+msgid "Update State"
+msgstr "تحديث الحالة"
+
+#. module: real_state
+#: model:ir.ui.menu,name:real_state.menu_wizard_sup
+msgid "Updates"
+msgstr "التحديثات"
+
+#. module: real_state
+#: model:ir.model.fields,field_description:real_state.field_real_estate_property_history__user_id
+msgid "User"
+msgstr "المستخدم"
+
+#. module: real_state
+#: model_terms:ir.ui.view,arch_db:real_state.property_report_template
+msgid "Value"
+msgstr "القيمة"
+
+#. module: real_state
+#: model:ir.model.fields.selection,name:real_state.selection__real_estate_property__property_type__villa
+#: model:ir.model.fields.selection,name:real_state.selection__real_estate_property_commercial__property_type__villa
+msgid "Villa"
+msgstr "فيلا"
+
+#. module: real_state
+#: model:ir.model.fields.selection,name:real_state.selection__real_estate_property_commercial__business_type__warehouse
+msgid "Warehouse"
+msgstr "مستودع"
+
+#. module: real_state
+#: model:ir.model,name:real_state.model_real_estate_property_commercial
+msgid "real.estate.property.commercial"
+msgstr "عقار تجاري"
+
+#. module: real_state
+#: model:ir.model,name:real_state.model_real_estate_property_history
+msgid "real.estate.property.history"
+msgstr "سجل العقار"
+
+#. module: real_state
+#: model_terms:ir.ui.view,arch_db:real_state.view_property_search
+msgid "state"
+msgstr "الحالة"

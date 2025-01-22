@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <record id="property_report" model="ir.actions.report">
+        <field name="name">Property-PDF</field>
+        <field name="model">real.estate.property</field>
+        <field name="binding_model_id" ref="model_real_estate_property"/>
+        <field name="binding_type">report</field>
+        <field name="report_type">qweb-html</field>
+        <field name="report_name">real_state.property_report_template</field>
+    </record>
+    <!-- Report Action: Property Report -->
+    <!-- <record id="action_property_report" model="ir.actions.report">
+        <field name="name">Property-PDF</field>  -->
+        <!-- name in ui for user -->
+        <!-- <field name="model">real.estate.property</field>  Reference to the Property model
+        <field name="report_type">qweb-html</field>  Generate a HTML OR PDF report
+        <field name="binding_model_id" ref="model_real_estate_property"/>  Bind the report to the Property model
+        <field name="binding_view_types">form</field>   Show the report action in the form view in actions button
+        <field name="binding_view_types">report</field>  Show the report action in the view 
+        <field name="report_name">real_estate.property_report_template</field>   APP NAME AND Reference to the report template -->
+        <!-- <field name="paperformat_id" ref="report.paperformat_euro"/>  Paper format -->
+    <!-- </record> -->
+
+
+</odoo>
