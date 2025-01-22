@@ -51,24 +51,24 @@
              <div class="oe_button_box" name="button_box">
                         <!-- Button to open the related agent's form view -->
                         <!-- by class oe_button_box and method -->
-                        <button
-                                class="oe_button_box"
-                                type="object"
-                                name="action_open_agent"
-                                icon="fa-user"
-                                string="Linked Agent"
-                                invisible="not agent_id" />
-                    </div>
+                    <button
+                            class="oe_button_box"
+                            type="object"
+                            name="action_open_agent"
+                            icon="fa-user"
+                            string="Linked Agent"
+                            invisible="not agent_id" />
+                </div>
                 <!-- *info* define  sheet tag for form  create new record  -->
                 <sheet>
-                <widget name="web_ribbon" title="Closed" bg_color="text-bg-danger" invisable="state != 'closed'" />
+                <!-- <widget name="web_ribbon" title="Closed" bg_color="text-bg-danger" invisable="state != 'closed'" /> -->
                 <!-- web_ribbon widget and title for ui name and text danger for ui and invisable for logic -->
                     <header>
-                        <button name="action_draft" string="Draft" type="object"  class="oe_highlight" invisible="state in ('draft','canceled' ,'sold','closed')"/>
+                        <button name="action_draft" string="Draft" type="object"  class="oe_highlight" />
                         <button name="offer_env" string="Offer" type="object"  class="oe_highlight" />
                         <!-- this button for action method of state in models and type="object" for func ,string for ui and class of css -->
-                        <button name="action_available" string="Available" type="object"  class="btn-primary" invisible="state in ('available','canceled','closed')" />
-                        <button name="action_sold" string="Sold" type="object"  class="btn-success" invisible="state in ('sold','draft' ,'canceled','closed')" />
+                        <button name="action_available" string="Available" type="object"  class="btn-primary"  />
+                        <button name="action_sold" string="Sold" type="object"  class="btn-success"  />
                         <button name="action_canceled" string="Canceled" type="object" class="btn-danger" invisible="state in ('canceled','available' ,'draft','closed')" />
                         <field name="state" widget="statusbar" statusbar_visible="draft,available,sold,canceled"/>
                         <!-- this field with statusbarwidget and statusbar_visible to show our model state in ui -->
