@@ -11,7 +11,6 @@ You can further enhance this summary by adding specific features, such as:
 ![](https://github.com/AbdulrahmanElsharef/odoo_Real_Estate/blob/main/app_image/all_propert.PNG)
 ![](https://github.com/AbdulrahmanElsharef/odoo_Real_Estate/blob/main/app_image/app.PNG)
 ![](https://github.com/AbdulrahmanElsharef/odoo_Real_Estate/blob/main/app_image/form.PNG)
-![](https://github.com/AbdulrahmanElsharef/odoo_Real_Estate/blob/main/app_image/home.PNG)
 ![](https://github.com/AbdulrahmanElsharef/odoo_Real_Estate/blob/main/app_image/offer.PNG)
 ![](https://github.com/AbdulrahmanElsharef/odoo_Real_Estate/blob/main/app_image/offers.PNG)
 ![](https://github.com/AbdulrahmanElsharef/odoo_Real_Estate/blob/main/app_image/report.PNG)
