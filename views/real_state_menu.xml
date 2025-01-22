@@ -24,6 +24,13 @@
             name="Configrations" 
             parent="menu_property_root" sequence="3"
         />
+        <menuitem
+        id="menu_open_support"
+        parent="menu_property_root"
+        name="Support"
+        action="action_open_Support"
+        sequence="4"
+    />
 
     <!-- Sub Menus -->
         <menuitem id="menu_property_sup" 

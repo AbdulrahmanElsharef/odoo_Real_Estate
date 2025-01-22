@@ -52,12 +52,12 @@
                         <!-- Button to open the related agent's form view -->
                         <!-- by class oe_button_box and method -->
                         <button
-                            class="oe_button_box"
-                            type="object"
-                            name="action_open_agent"
-                            icon="fa-user"
-                            string="Linked Agent"
-                            invisible="not agent_id" />
+                                class="oe_button_box"
+                                type="object"
+                                name="action_open_agent"
+                                icon="fa-user"
+                                string="Linked Agent"
+                                invisible="not agent_id" />
                     </div>
                 <!-- *info* define  sheet tag for form  create new record  -->
                 <sheet>

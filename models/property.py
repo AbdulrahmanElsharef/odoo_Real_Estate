@@ -5,11 +5,11 @@ from datetime import date, datetime
 
 class Property(models.Model):
     # meta data for model
-    _name = 'real.estate.property' # *info* name of table in db 
-    _description = 'Property' # *info* name of table for record 
-    _inherit = ['mail.thread', 'mail.activity.mixin']  # Enable Chatter and Activities
-    _rec_name="name" # *info*name for record like __Str_ 
-    _order = 'price asc'
+    _name = 'real.estate.property'  # Name of the table in the database
+    _description = 'Property'        # Display name for the model
+    _inherit = ['mail.thread', 'mail.activity.mixin']  # Enables functionalities like Chatter and Activities
+    _rec_name = "name"                # Field used as the record name (similar to `__str__` method)
+    _order = 'price asc'             # Sorts properties by price in ascending order by default
     #_rec_names_search= [""]
     # _log_access=False    *info* for disable  (create,write uid and date) 
     
